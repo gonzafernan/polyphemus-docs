@@ -70,10 +70,7 @@ codirector, % Uncomment to add a codirector to the title page
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 4 inclusive                 & 9 de mayo de 2023 \\ \hline
-%2      & Se completa hasta el punto 7 inclusive
-%		  Se puede agregar algo más \newline
-%		  En distintas líneas \newline
-%		  Así                                                    & dd/mm/aaaa \\ \hline
+2      & Se completa hasta el punto 7 inclusive					& 16 de mayo de 2023 \\ \hline
 %3      & Se completa hasta el punto 11 inclusive                & dd/mm/aaaa \\ \hline
 %4      & Se completa el plan	                                 & dd/mm/aaaa \\ \hline
 \end{tabularx}
@@ -299,52 +296,105 @@ Para el desarrollo del presente proyecto se supone que todos los elementos de ha
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red}
-Los requerimientos deben numerarse y de ser posible estar agruparlos por afinidad, por ejemplo:
+% \begin{consigna}{red}
+% Los requerimientos deben numerarse y de ser posible estar agruparlos por afinidad, por ejemplo:
 
-\begin{enumerate}
-	\item Requerimientos funcionales
-		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
-		\end{enumerate}
-	\item Requerimientos de documentación
-		\begin{enumerate}
-			\item Requerimiento 1
-			\item Requerimiento 2 (prioridad menor)
-		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
-\end{enumerate}
+% \begin{enumerate}
+% 	\item Requerimientos funcionales
+% 		\begin{enumerate}
+% 			\item El sistema debe...
+% 			\item Tal componente debe...
+% 			\item El usuario debe poder...
+% 		\end{enumerate}
+% 	\item Requerimientos de documentación
+% 		\begin{enumerate}
+% 			\item Requerimiento 1
+% 			\item Requerimiento 2 (prioridad menor)
+% 		\end{enumerate}
+% 	\item Requerimiento de testing...
+% 	\item Requerimientos de la interfaz...
+% 	\item Requerimientos interoperabilidad...
+% 	\item etc...
+% \end{enumerate}
 
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
+% Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
 
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
+% Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
 
-No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
+% No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
 
-Y al escribirlos seguir las siguientes reglas:
+% Y al escribirlos seguir las siguientes reglas:
+% \begin{itemize}
+% 	\item Ser breve y conciso (nadie lee cosas largas). 
+% 	\item Ser específico: no dejar lugar a confusiones.
+% 	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
+% \end{itemize}
+
+% \end{consigna}
+
+\subsection{Requerimientos funcionales}
 \begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
+	\item El driver de la IMU debe ofrecer a la aplicación la información del giróscopo y acelerómetro de forma completa. Se deben brindar todas las posibilidades de configuración necesarias para poder adaptar la escala y frecuencia de muestreo de los sensores a los requisitos de la aplicación. El driver debe implementarse de forma modular para que pueda utilizarse independientemente del proyecto.
+	\item El driver de la cámara debe proveer a la aplicación la información correcta dadas las capacidades del dispositivo.
+	\item El sistema embebido debe utilizar micro ros para interactuar e integrarse facilmente con el entorno de desarrollo, monitoreo y evaluación de ROS 2.
+	\item El sistema embebido debe hacer un uso adecuado de los mecanismos de comunicación de micro ros con ROS 2 para explotar todas las ventajas que ofrece el framework.
+	\item El sistema debe estar diseñado de forma modular para favorecer la escalabilidad del mismo.
+	\item El sistema debe utilizar algoritmos y técnicas de fusión sensorial para optimizar el uso de la información obtenida por la IMU.
+	\item El sistema debe ejecutar un algoritmo investigado previamente de SLAM monocular.
 \end{itemize}
 
-\end{consigna}
+\subsection{Requisitos de documentación}
+\begin{itemize}
+	\item Todas aquellas funcionalidades cubiertas en el driver de la IMU deben estar completamente documentadas para que el módulo de software pueda utilizarse independientemente del proyecto.
+	\item El proceso de incorporación y uso de las librerías de micro ros debe estar correctamente documentado para facilitar el desarrollo continuo del sistema.
+	\item La investigación del estado del arte en el tópico de algoritmos de SLAM monocular debe estar debidamente documentada.
+	\item El algoritmo seleccionado para implementar en el sistema debe estar documentado en forma detallada.
+\end{itemize}
+
+\subsection{Requerimientos de testing}
+\begin{itemize}
+	\item Se deben aplicar herramientas y metodologías de testing en los drivers de los módulos para asegurar el funcionamiento y calidad de los mismos.
+\end{itemize}
+
+\subsection{Requerimientos de la interfaz}
+\begin{itemize}
+	\item Las herramientas desarrolladas en el entorno de ROS 2 deben también cumplir el propósito de interfaz gráfica, y permitir la visualización de la información obtenida a través de los sensores.
+	\item El sistema desarrollado con ROS 2 debe ofrecer herramientas que permitan operar y reconfigurar el sistema.
+	\item El sistema desarrollado con ROS 2 debe ofrecer herramientas que permitan evaluar de forma sencilla el desempeño del algoritmo implementado.
+\end{itemize}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+% \begin{consigna}{red}
+% Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
 
-El formato propuesto es: "como [rol] quiero [tal cosa] para [tal otra cosa]."
+% El formato propuesto es: "como [rol] quiero [tal cosa] para [tal otra cosa]."
 
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia
-\end{consigna}
+% Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia
+% \end{consigna}
+
+Se identifican los siguientes roles/usuarios:
+\begin{enumerate}
+	\item Investigador en el área de Ciencias de la Computación, en su rol de estudiante de máster o PhD desea realizar avances en los algoritmos de navegación autónoma. No necesariamente tiene conocimientos de electrónica y sistemas embebidos, su foco es el desarrollo a alto nivel.
+	\item Investigador en el área de electrónica, sistemas embebidos y/o firmware, en su rol de estudiante de máster o PhD desea realizar avances en el desarrollo de dispositivos de navegación autónoma mediante la optimización o mejora del hardware y el firmware asociado.
+	\item Usuario perteneciente a la comunidad de código abierto/libre, en su rol desea implementar el proyecto con sus propios materiales, aplicarlo en un caso de uso específico y colaborar con posibles mejoras. Puede o no poseer conocimiento técnico.
+\end{enumerate}
+
+La ponderación de cada historia de usuario se obtiene de una evaluación sobre tres ejes: Tiempo, dificultad e incertidumbre. Sobre cada eje se asigna un valor en una escala entre 0 y 5, luego este valor se penaliza según la relevancia asignada a cada aspecto: Tiempo 0.4, dificultad 0.2 e incertidumble 0.4. Para obtener el puntaje final de la historia se divide el resultado parcial por 5 y se multiplica por 100.
+
+\textbf{Historia de usuario 1:} En el desarrollo de mi investigación, desea poder utilizar los sensores de SLAM monocular como si fueran una caja negra. Deseo que sea sencillo aprender a utilizarlo e incorporarlo en mi flujo de trabajo. Desea poder visualizar la información obtenida por los mismos y utilizarla como entrada a simulaciones virtuales, así como bajar al dispositivo los algoritmos implementados a alto nivel para la simulación virtual y analizar su desempeño.
+
+Tiempo 4, dificultad 3, incertidumbre 2. Puntaje: 60 
+
+\textbf{Historia de usuario 2:} En el desarrollo de mi investigación, deseo poder entender rápido cómo esta conformado el sistema y que sea lo suficientemente modular como para modificar, mejorar y/o intercambiar algún componente funcional y que el sistema siga operando sin dificultades. Un ejemplo puede ser la incorporación de una FPGA como hardware dedicado para optimizar alguna etapa del algoritmo. También desea poder reutilizar los componentes que conforman el sistema de forma independiente en un proyecto diferente.
+
+Tiempo 3, dificultad 3, incertidumbre 2. Puntaje: 52
+
+\textbf{Historia de usuario 3:} Al implementar el proyecto con mis propios materiales, lo más importante es la accesibilidad de los componentes de hardware y la documentación de las distintas etapas para poner en marcha el sistema. Deseo que el proyecto posea un mecanismo para poder contribuir en cualquiera de sus aspectos dado mi conocimiento específico.
+
+Tiempo 4, dificultad 2, incertidumbre 3. Puntaje: 64
+
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
