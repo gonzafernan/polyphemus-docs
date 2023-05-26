@@ -109,6 +109,8 @@
 % Adds space between caption and table
 \usepackage[tableposition=top]{caption}
 
+\usepackage{booktabs}
+
 % Adds hyperlinks to references and ToC
 %\usepackage{hyperref}
 %\hypersetup{hidelinks,linkcolor = black} % Changes the link color to black and hides the hideous red border that usually is created

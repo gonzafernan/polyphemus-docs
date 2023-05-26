@@ -17,7 +17,7 @@ codirector, % Uncomment to add a codirector to the title page
 %\posgrado{Maestría en Internet de las cosas}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Gonzalo Gabriel Fernandez} 
+\autor{Ing. Gonzalo Gabriel Fernández} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{Nombre del Director}
@@ -27,7 +27,7 @@ codirector, % Uncomment to add a codirector to the title page
 \pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Leandro Borgnino}
+\cliente{Ing. Leandro Borgnino}
 \empresaCliente{Fundación Fulgor}
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
@@ -52,6 +52,7 @@ codirector, % Uncomment to add a codirector to the title page
 
 \thispagestyle{empty}
 {\setlength{\parskip}{0pt}
+\setcounter{tocdepth}{1}
 \tableofcontents{}
 }
 \pagebreak
@@ -71,7 +72,7 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 0      & Creación del documento                                 &\fechaInicioName \\ \hline
 1      & Se completa hasta el punto 4 inclusive                 & 9 de mayo de 2023 \\ \hline
 2      & Se completa hasta el punto 7 inclusive					& 16 de mayo de 2023 \\ \hline
-%3      & Se completa hasta el punto 11 inclusive                & dd/mm/aaaa \\ \hline
+3      & Se completa hasta el punto 12 inclusive                & 25 de mayo de 2023 \\ \hline
 %4      & Se completa el plan	                                 & dd/mm/aaaa \\ \hline
 \end{tabularx}
 \end{table}
@@ -89,7 +90,7 @@ Córdoba, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en \textcolor{red}{la implementación de un prototipo de un sistema de control de temperatura de un calefón}, y tendrá un presupuesto preliminar estimado de \textcolor{red}{600} h de trabajo, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el desarrollo de una plataforma móvil para la evaluación de algoritmos de SLAM monocular investigados para aplicación en navegación autónoma, y tendrá un presupuesto preliminar estimado de 600 h de trabajo, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -147,15 +148,26 @@ Se adjunta a esta acta la planificación inicial.
 % El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
 % \end{consigna}
 
-La navegación autónoma ha sido un tema de investigación activo durante décadas, pero recientemente ha ganado una atención sin precedentes gracias a los avances en tecnologías como la inteligancia artificial y la robótica. La navegación autónoma se refiere a la capacidad de un sistema para planificar i ejecutar sus propias acciones de manera autónoma, sin la necesidad de una intervención humana constante. Esta capacidad es crucial para una amplia gama de aplicaciones, desde los vehículos autónomos y los drones hasta los robots industriales y los sistemas de logística.
+La navegación autónoma ha sido un tema de investigación activo durante décadas, pero recientemente ha ganado una atención sin precedentes gracias a los avances en tecnologías como la inteligencia artificial y la robótica.
 
-La investigación de técnicas de técnicas de bajo costo es importante porque puede ayudar a reducir los costos de implementación y hacer que la tecnología sea más accesible para un mayor número de aplicaciones y usuarios. Esto es especialmente importante en países en desarrollo o en áreas con recursos limitados, donde los sistemas de navegación autónoma pueden ser prohibitivamente costosos. También puede mejorar la eficiencia y la efectividad de los sistemas de navegación autónoma, al permitir que los recursos sean utilizados de manera más efectiva y maximizar la vida útil de los componentes del sistema.
+La navegación autónoma se refiere a la capacidad de un sistema para planificar y ejecutar sus propias acciones de manera autónoma, sin la necesidad de una intervención humana constante.
 
-La odometría visual es una técnica de localización y navegación que se utiliza en robótica para estimar la posición y orientación de un robot en su entorno en función de la información visual capturada por sus cámaras. La información de las imágenes capturadas permite estimar la cantidad de movimiento y la dirección del robot, posibilitando calcular su posición y orientación en relación a una posición inicial. Es particularmente útil en entornos donde el movimiento del robot es predominantemente lateral, ya que se basa en la medición del movimiento de los objetos en la imagen en relación con un marco de referencia. Además, la odometría visual se puede utilizar en combinación con otras técnicas de localización y navegación, como la odometría inercial o la SLAM (Simultaneous Localization and Mapping), para mejorar la precisión y la fiabilidad de la localización del robot.
+La capacidad de un sistema para tomar decisiones en forma autónoma en su navegación a través del entorno es crucial para una amplia gama de aplicaciones, desde los vehículos autónomos y los drones, hasta los robots industriales y los sistemas de logística.
 
-SLAM (Simultaneous Localization and Mapping) es una técnica de visión por computadora que permite a un robot móvil construir un mapa del entorno en el que se encuentra, mientras simultáneamente estima su propia posición y orientación en ese entorno. En el caso de SLAM monocular, se utiliza una única cámara para capturar imágenes del entorno, y en tiempo real se utilizan diferentes algoritmos para procesar las imágenes y estimar la posición y orientación del robot.
+La investigación de técnicas de bajo costo es importante para permitir que la tecnología sea accesible para un mayor número de aplicaciones y usuarios. Esto es especialmente importante en países en desarrollo o en áreas con recursos limitados, donde los sistemas de navegación autónoma pueden ser prohibitivamente costosos. 
 
-La Fundación Fulgor realiza diversas actividades de investigación. Dentro del campo de navegación autónoma, una de las ramas de interés es la de algoritmos de SLAM monocular en conjunto con la odometría inercial, por las diferentes ventajas que presenta sobre otros métodos. Se han realizado experimentos, implementando y comparando el desempeño de diferentes algoritmos en entornos de simulación. Actualmente, uno de los objetivos en esta línea de investigación es poder migrar los algoritmos estudiados en un entorno virtual a un sistema físico, para evaluar su desempeño en un entorno real. La experimentación en entornos virtuales se llevó a cabo con el framework ROS 2, y dada su naturaleza modular, permite que la migración consista en el reemplazo de un módulo encapsulado que contenga el algoritmo, como se observa en la Figura \ref{fig:ros2-to-microros}. 
+La restricción económica en el desarrollo de nuevas técnicas también puede mejorar la eficiencia y la efectividad de los sistemas de navegación autónoma, al permitir que los recursos sean utilizados de manera más efectiva y maximizar la vida útil de los componentes del sistema.
+
+La odometría visual es una técnica de localización y navegación que se utiliza en robótica para estimar la posición y orientación de un robot en su entorno en función de la información visual capturada por sus cámaras. La información de las imágenes capturadas permite estimar la cantidad de movimiento y la dirección del vehículo, posibilitando calcular su posición y orientación en relación con su posición inicial.
+
+Las técnicas de odometría visual son particularmente útiles en entornos donde el movimiento del robot es predominantemente lateral. Además, se pueden utilizar en combinación con otras técnicas de localización y navegación, como la odometría inercial o la SLAM (\textit{Simultaneous Localization and Mapping}), para mejorar la precisión y la fiabilidad de la localización del robot.
+
+La SLAM es una técnica de visión por computadora que permite a un robot móvil construir un mapa del entorno en el que se encuentra, mientras simultáneamente estima su propia posición y orientación en ese entorno. En el caso de SLAM monocular, se utiliza una única cámara para capturar imágenes del entorno.
+
+La Fundación Fulgor realiza diversas actividades de investigación. Dentro del campo de navegación autónoma, una de las ramas de interés es la de algoritmos de SLAM monocular en conjunto con la odometría inercial, por las diferentes ventajas que presenta sobre otros métodos. Se han realizado experimentos, implementando y comparando el desempeño de diferentes algoritmos en entornos de simulación.
+
+Actualmente, uno de los objetivos en esta línea de investigación es poder migrar los algoritmos estudiados en un entorno virtual a un sistema físico, para evaluar su desempeño en un entorno real. La experimentación en entornos virtuales se llevó a cabo con el framework ROS 2 (Robot Operating System 2).
+Dada la naturaleza modular de este framework, la migración consiste en el reemplazo de un módulo encapsulado que contenga el algoritmo, como se observa en la Figura \ref{fig:ros2-to-microros}. 
 
 \begin{figure}[htpb]
 \centering 
@@ -166,9 +178,16 @@ La Fundación Fulgor realiza diversas actividades de investigación. Dentro del 
 
 % El uso de micro-ROS permite continuar con el uso de todas las herramientas que facilita ROS 2, manteniendo el entorno de estudio del sistema, e inclusive posibilitando la realimentación del sistema físico hacia el entorno de simulación.
 
-ROS 2 es un framework de software libre y de código abierto diseñado para permitir el desarrollo de aplicaciones robóticas distribuidas. Proporciona un conjunto de herramientas para la creación, gestión, depuración y análisis de sistemas robóticos. Es la segunda versión de ROS (Robot Operating System) y ha sido desarrollado por la comunidad con el objetivo de mejorar la escalabilidad, la fiabilidad y la seguridad de ROS, entre otras características. Una de las principales características es que está diseñado para ser modular y extensible, lo que significa que los desarrolladores pueden elegir los componentes que necesitan para sus aplicaciones y utilizarlos de manera flexible. ROS 2 también se enfoca en proporcionar una abstracción de hardware más clara y permitir el uso de diferentes sistemas operativos y arquitecturas de hardware. 
+El entorno ROS es un framework de software libre y de código abierto diseñado para permitir el desarrollo de aplicaciones robóticas distribuidas. Proporciona un conjunto de herramientas para la creación, gestión, depuración y análisis de sistemas robóticos.
 
-micro-ROS es una implementación de ROS 2 diseñada específicamente para sistemas embebidos y de tiempo real. A diferencia de ROS 2, que se ejecuta en sistemas operativos de propósito general, micro-ROS se ejecuta en sistemas operativos de tiempo real, como NuttX y FreeRTOS, lo que permite el desarrollo de sistemas robóticos en entornos de baja potencia y limitados recursos. Como puede observarse en la Figura \ref{fig:microROSarch}, micro-ROS proporciona una capa de abstracción que permite la comunicación entre los sistemas embebidos y los nodos de ROS 2 en otros sistemas. Esto significa que los desarrolladores pueden crear sistemas robóticos distribuidos que utilizan tanto sistemas embebidos como sistemas de propósito general, y que todos ellos pueden comunicarse a través de la misma plataforma.
+La segunda versión de la herramienta, denominada ROS 2, fue desarrollada por la comunidad con el objetivo de mejorar la escalabilidad, la fiabilidad y la seguridad del software.
+Una de sus principales características es que está diseñado para ser modular y extensible, lo que significa que los desarrolladores pueden elegir los componentes que necesitan para sus aplicaciones y utilizarlos de manera flexible. 
+También se enfoca en proporcionar una abstracción de hardware más clara y permitir el uso de diferentes sistemas operativos y arquitecturas. 
+
+La herramienta micro-ROS es una implementación de ROS 2 diseñada específicamente para sistemas embebidos y de tiempo real. A diferencia de ROS 2, que se ejecuta en sistemas operativos de propósito general, micro-ROS se ejecuta en sistemas operativos de tiempo real, como NuttX y FreeRTOS, lo que permite el desarrollo de sistemas robóticos en entornos de baja potencia y recursos limitados.
+
+Como puede observarse en la Figura \ref{fig:microROSarch}, micro-ROS proporciona una capa de abstracción que permite la comunicación entre los sistemas embebidos y los nodos de ROS 2 en otros sistemas.
+Esto significa que los desarrolladores pueden crear sistemas robóticos distribuidos, que utilicen tanto sistemas embebidos como sistemas de propósito general y que todos ellos pueden comunicarse a través de la misma plataforma.
 
 \begin{figure}[htpb]
 \centering 
@@ -226,6 +245,12 @@ micro-ROS es una implementación de ROS 2 diseñada específicamente para sistem
 
 % \end{consigna} % este comando se debe borrar para la entrega, junto con la contraparte \begin{consigna}{red}
 
+\begin{itemize}
+	\item Cliente: El \clientename{} tiene se encuentra haciendo su doctorado en la Fundación Fulgor y posee un gran conocimiento sobre los algoritmos utilizados para navegación autónoma a alto nivel. Es capaz de resolver dudas específicas sobre los requerimientos a cumplir con el algoritmo a implementar.
+	\item Equipo: Evangelina Castellano se encuentra realizando su Práctica Profesional Supervisada (PPS) en la Fundación Fulgor. Al finalizar su PPS continuará en la institución para realizar su proyecto final de grado. Es necesario planificar teniendo en cuenta que la dedicación es simple, es decir, entre 4 y 5 horas diarias.
+	\item Usuario final: No esta representado por una persona particular. Una vez finalizado el proyecto el prototipo quedará disponible en la Fundación Fulgor para su uso.
+\end{itemize}
+
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
 %\label{tab:interesados}
@@ -239,8 +264,7 @@ Cliente       & \clientename      &\empclientename	&  Investigador      	\\ \hli
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
 % Colaboradores &                   &              	&        	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director Trabajo final \\ \hline
-Equipo        & Evangelina Castellano \newline 
-				\authorname          &          -    	&     Colaboradores   	\\ \hline
+Equipo        & Evangelina Castellano          &        Universidad Nacional de Córdoba    	&     Colaboradores   	\\ \hline
 %Opositores    &                   &              	&        	\\ \hline
 Usuario final & Grupos de investigación                  &   Fundación Fulgor           	&     -   	\\ \hline
 \end{tabularx}
@@ -249,13 +273,9 @@ Usuario final & Grupos de investigación                  &   Fundación Fulgor 
 \section{3. Propósito del proyecto}
 \label{sec:proposito}
 
-% \begin{consigna}{red}
-% ¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
+El propósito de este proyecto es desarrollar el prototipo de una plataforma de hardware con las capacidades para poder implementar los algoritmos investigados de SLAM monocular y observar resultados.
 
-% Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
-% \end{consigna}
-
-El propósito de este proyecto es desarrollar el prototipo de una plataforma de hardware con las capacidades para poder implementar los algoritmos investigados de SLAM monocular y observar resultados. La técnica de SLAM monocular es de interés por su aplicación en la navegación autónoma de vehículos, su bajo costo econónico y simpleza del hardware involucrado en comparación a otras técnicas utilizadas en el área.
+La técnica de SLAM monocular es de interés por su aplicación en la navegación autónoma de vehículos, su bajo costo económico y simpleza del hardware involucrado en comparación a otras técnicas utilizadas en el área.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
@@ -271,11 +291,11 @@ El propósito de este proyecto es desarrollar el prototipo de una plataforma de 
 
 % \end{consigna}
 
-El proyecto incluye el diseño del sistema embebidos, el desarrollo de los drivers de los sensores asociados a las técnicas de SLAM monocular, la incorporación de la interfaz de micro-ROS en el proyecto, la aplicación de ROS 2 que permitirá interactuar con el sistema a alto nivel y la investigación e implementación de un algoritmo de SLAM monocular adecuado.
+El proyecto incluye el diseño del sistema embebido, el desarrollo de los drivers de los sensores asociados a las técnicas de SLAM monocular, la incorporación de la interfaz de micro-ROS en el proyecto, la aplicación de ROS 2 que permitirá interactuar con el sistema a alto nivel y la investigación e implementación de un algoritmo de SLAM monocular adecuado.
 
 El proyecto no incluye el desarrollo de algoritmos de navegación autónoma asociados a la planificación y ejecución de trayectorias del vehículo ni el modelado matemático del mismo. Tampoco incluye optimización de los algoritmos planteados con el uso de hardware dedicado como una FPGA, por ser una actividad que se realizará en una segunda etapa del proyecto.
 
-Por lo tanto, el producto final esperado es un prototipo de un sistema embebido con los correspondientes sensores y herramientas necesarias functionando en conjunto con técnicas de SLAM monocular, que un vehículo móvil pueda incorporar para dotarlo con capacidades de navegación autónoma.
+Por lo tanto, el producto final esperado es un prototipo de un sistema embebido con los correspondientes sensores y herramientas necesarias funcionando en conjunto con técnicas de SLAM monocular, que un vehículo móvil pueda incorporar para dotarlo con capacidades de navegación autónoma.
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
@@ -291,7 +311,15 @@ Por lo tanto, el producto final esperado es un prototipo de un sistema embebido 
 % Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
 % \end{consigna}
 
-Para el desarrollo del presente proyecto se supone que todos los elementos de hardware vinculados al sistema se encuentran adquiridos por Fundación Fulgor y su interconexión es trivial dado el conocimiento de los integrantes del equipo de trabajo.
+Para el desarrollo del presente proyecto se supone que:
+
+\begin{itemize}
+	\item La adquisición de materiales no tendrá demoras mayores a una semana, asumiendo que el mercado local posee los materiales requeridos para la fabricación del prototipo.
+	\item No habrán cambios en el equipo de trabajo en el periodo de tiempo que comprende la planificación del proyecto.
+	\item El responsable del proyecto puede dedicar una cantidad mínima de 25 horas semanales a las actividades del plan.
+	\item El responsable del proyecto estará ausente durante dos semanas de Julio del año 2023, con fecha a definir.
+	\item No habrán cambios en los objetivos principales del proyecto ni nuevos requerimientos funcionales de parte del cliente.
+\end{itemize}
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
@@ -334,31 +362,31 @@ Para el desarrollo del presente proyecto se supone que todos los elementos de ha
 
 \subsection{Requerimientos funcionales}
 \begin{itemize}
-	\item El driver de la IMU debe ofrecer a la aplicación la información del giróscopo y acelerómetro de forma completa. Se deben brindar todas las posibilidades de configuración necesarias para poder adaptar la escala y frecuencia de muestreo de los sensores a los requisitos de la aplicación. El driver debe implementarse de forma modular para que pueda utilizarse independientemente del proyecto.
+	\item El driver de la Unidad de Medición Inercial (IMU por sus siglas en inglés) debe ofrecer a la aplicación la información del giróscopo y acelerómetro de forma completa. Se deben brindar todas las posibilidades de configuración necesarias para poder adaptar la escala y frecuencia de muestreo de los sensores a los requisitos de la aplicación. El driver debe implementarse de forma modular para que pueda utilizarse independientemente del proyecto.
 	\item El driver de la cámara debe proveer a la aplicación la información correcta dadas las capacidades del dispositivo.
-	\item El sistema embebido debe utilizar micro ros para interactuar e integrarse facilmente con el entorno de desarrollo, monitoreo y evaluación de ROS 2.
-	\item El sistema embebido debe hacer un uso adecuado de los mecanismos de comunicación de micro ros con ROS 2 para explotar todas las ventajas que ofrece el framework.
-	\item El sistema debe estar diseñado de forma modular para favorecer la escalabilidad del mismo.
+	\item El sistema embebido debe utilizar micro-ROS para interactuar e integrarse fácilmente con el entorno de desarrollo, monitoreo y evaluación de ROS 2.
+	\item El sistema embebido debe hacer un uso adecuado de los mecanismos de comunicación de micro-ROS con ROS 2 para explotar todas las ventajas que ofrece el framework.
+	\item El sistema debe estar diseñado de forma modular para favorecer su escalabilidad.
 	\item El sistema debe utilizar algoritmos y técnicas de fusión sensorial para optimizar el uso de la información obtenida por la IMU.
 	\item El sistema debe ejecutar un algoritmo investigado previamente de SLAM monocular.
 \end{itemize}
 
-\subsection{Requisitos de documentación}
+\subsection{Requerimientos de documentación}
 \begin{itemize}
 	\item Todas aquellas funcionalidades cubiertas en el driver de la IMU deben estar completamente documentadas para que el módulo de software pueda utilizarse independientemente del proyecto.
-	\item El proceso de incorporación y uso de las librerías de micro ros debe estar correctamente documentado para facilitar el desarrollo continuo del sistema.
+	\item El proceso de incorporación y uso de las librerías de micro-ROS debe estar correctamente documentado para facilitar el desarrollo continuo del sistema.
 	\item La investigación del estado del arte en el tópico de algoritmos de SLAM monocular debe estar debidamente documentada.
 	\item El algoritmo seleccionado para implementar en el sistema debe estar documentado en forma detallada.
 \end{itemize}
 
 \subsection{Requerimientos de testing}
 \begin{itemize}
-	\item Se deben aplicar herramientas y metodologías de testing en los drivers de los módulos para asegurar el funcionamiento y calidad de los mismos.
+	\item Se deben aplicar herramientas y metodologías de testing en los drivers de los módulos para asegurar su funcionamiento y calidad.
 \end{itemize}
 
 \subsection{Requerimientos de la interfaz}
 \begin{itemize}
-	\item Las herramientas desarrolladas en el entorno de ROS 2 deben también cumplir el propósito de interfaz gráfica, y permitir la visualización de la información obtenida a través de los sensores.
+	\item Las herramientas desarrolladas en el entorno de ROS 2 deben también cumplir el propósito de interfaz gráfica y permitir la visualización de la información obtenida a través de los sensores.
 	\item El sistema desarrollado con ROS 2 debe ofrecer herramientas que permitan operar y reconfigurar el sistema.
 	\item El sistema desarrollado con ROS 2 debe ofrecer herramientas que permitan evaluar de forma sencilla el desempeño del algoritmo implementado.
 \end{itemize}
@@ -366,183 +394,261 @@ Para el desarrollo del presente proyecto se supone que todos los elementos de ha
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-% \begin{consigna}{red}
-% Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
-
-% El formato propuesto es: "como [rol] quiero [tal cosa] para [tal otra cosa]."
-
-% Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia
-% \end{consigna}
-
 Se identifican los siguientes roles/usuarios:
 \begin{enumerate}
 	\item Investigador en el área de Ciencias de la Computación, en su rol de estudiante de máster o PhD desea realizar avances en los algoritmos de navegación autónoma. No necesariamente tiene conocimientos de electrónica y sistemas embebidos, su foco es el desarrollo a alto nivel.
-	\item Investigador en el área de electrónica, sistemas embebidos y/o firmware, en su rol de estudiante de máster o PhD desea realizar avances en el desarrollo de dispositivos de navegación autónoma mediante la optimización o mejora del hardware y el firmware asociado.
+	\item Investigador en el área de la electrónica, sistemas embebidos y/o firmware, en su rol de estudiante de máster o PhD desea realizar avances en el desarrollo de dispositivos de navegación autónoma mediante la optimización o mejora del hardware y el firmware asociado.
 	\item Usuario perteneciente a la comunidad de código abierto/libre, en su rol desea implementar el proyecto con sus propios materiales, aplicarlo en un caso de uso específico y colaborar con posibles mejoras. Puede o no poseer conocimiento técnico.
 \end{enumerate}
 
-La ponderación de cada historia de usuario se obtiene de una evaluación sobre tres ejes: Tiempo, dificultad e incertidumbre. Sobre cada eje se asigna un valor en una escala entre 0 y 5, luego este valor se penaliza según la relevancia asignada a cada aspecto: Tiempo 0.4, dificultad 0.2 e incertidumble 0.4. Para obtener el puntaje final de la historia se divide el resultado parcial por 5 y se multiplica por 100.
+La ponderación de cada historia de usuario se obtiene de una evaluación sobre tres ejes: tiempo, dificultad e incertidumbre. Sobre cada eje se asigna un valor en una escala entre 0 y 5, luego este valor se penaliza según la relevancia asignada a cada aspecto: tiempo 0.4, dificultad 0.2 e incertidumbre 0.4. Para obtener el puntaje final de la historia se divide el resultado parcial por 5 y se multiplica por 100.
 
-\textbf{Historia de usuario 1:} En el desarrollo de mi investigación, desea poder utilizar los sensores de SLAM monocular como si fueran una caja negra. Deseo que sea sencillo aprender a utilizarlo e incorporarlo en mi flujo de trabajo. Desea poder visualizar la información obtenida por los mismos y utilizarla como entrada a simulaciones virtuales, así como bajar al dispositivo los algoritmos implementados a alto nivel para la simulación virtual y analizar su desempeño.
+\textbf{Historia 1 de usuario 1:} como investigador en el área de Ciencias de la Computación quiero poder utilizar los sensores de SLAM monocular como si fueran una caja negra, quiero que sea sencillo aprender a utilizarlo e incorporarlo en mi flujo de trabajo para bajar de forma sencilla al dispositivo los algoritmos implementados a alto nivel en la simulación.
 
-Tiempo 4, dificultad 3, incertidumbre 2. Puntaje: 60 
+Tiempo: 4. Dificultad: 3. Incertidumbre: 2. Puntaje: 60 
 
-\textbf{Historia de usuario 2:} En el desarrollo de mi investigación, deseo poder entender rápido cómo esta conformado el sistema y que sea lo suficientemente modular como para modificar, mejorar y/o intercambiar algún componente funcional y que el sistema siga operando sin dificultades. Un ejemplo puede ser la incorporación de una FPGA como hardware dedicado para optimizar alguna etapa del algoritmo. También desea poder reutilizar los componentes que conforman el sistema de forma independiente en un proyecto diferente.
+\textbf{Historia 2 de usuario 1:} como investigador en el área de Ciencias de la Computación quiero poder visualizar la información obtenida por los sensores y utilizarla como entrada a simulaciones virtuales.
 
-Tiempo 3, dificultad 3, incertidumbre 2. Puntaje: 52
+Tiempo: 3. Dificultad: 2. Incertidumbre: 1. Puntaje: 40 
 
-\textbf{Historia de usuario 3:} Al implementar el proyecto con mis propios materiales, lo más importante es la accesibilidad de los componentes de hardware y la documentación de las distintas etapas para poner en marcha el sistema. Deseo que el proyecto posea un mecanismo para poder contribuir en cualquiera de sus aspectos dado mi conocimiento específico.
+\textbf{Historia 1 de usuario 2:} como investigador en el área de la electrónica quiero poder entender rápido cómo esta conformado el sistema y que sea lo suficientemente modular como para modificar, mejorar y/o intercambiar algún componente funcional y que el sistema siga operando sin dificultades.
+% Un ejemplo puede ser la incorporación de una FPGA como hardware dedicado para optimizar alguna etapa del algoritmo.
 
-Tiempo 4, dificultad 2, incertidumbre 3. Puntaje: 64
+Tiempo: 4. Dificultad: 3. Incertidumbre: 2. Puntaje: 60
 
+\textbf{Historia 2 de usuario 2:} como investigador en el área de la electrónica quiero poder reutilizar los componentes que conforman el sistema de forma independiente en un proyecto diferente.
+
+Tiempo: 3. Dificultad: 3. Incertidumbre: 2. Puntaje: 52
+
+\textbf{Historia 1 de usuario 3:} como parte de la comunidad de código abierto/libre quiero que los materiales utilizados en el prototipo sean accesibles y que el proyecto tenga la documentación completa de las distintas etapas para poner en marcha el sistema.
+
+Tiempo: 5. Dificultad: 1. Incertidumbre: 3. Puntaje: 68
+
+\textbf{Historia 2 de usuario 3:} como parte de la comunidad de código abierto/libre quiero que el proyecto posea un mecanismo para poder contribuir en cualquiera de sus aspectos dado mi conocimiento específico.
+
+Tiempo: 4. Dificultad: 2. Incertidumbre: 3. Puntaje: 64
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-
-Los entregables del proyecto son (ejemplo):
-
+Los entregables del proyecto son:
 \begin{itemize}
-	\item Manual de uso
-	\item Diagrama de circuitos esquemáticos
-	\item Código fuente del firmware
-	\item Diagrama de instalación
+	\item Plataforma de hardware que conforma el prototipo funcional
+	\item Documentación del hardware e interconexión de los módulos componentes
+	\item Código fuente del driver de la IMU
+	\item Documentación del driver de la IMU
+	\item Código fuente del driver de la cámara
+	\item Documentación del driver de la cámara
+	\item Código fuente del firmware con el algoritmo de SLAM monocular y micro-ROS
+	\item Código fuente del agente de ROS 2 utilizado
+	\item Documentación y manual para configuración y uso del entorno de ROS 2
+	\item Documentación del estado del arte de SLAM y del algoritmo seleccionado
+	\item Manual de uso del hardware
 	\item Informe final
-	\item etc...
 \end{itemize}
-
-\end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
 
-\begin{consigna}{red}
-El WBS debe tener relación directa o indirecta con los requerimientos.  Son todas las actividades que se harán en el proyecto para dar cumplimiento a los requerimientos. Se recomienda mostrar el WBS mediante una lista indexada:
-
-\begin{enumerate}
-\item Grupo de tareas 1
+\begin{itemize}
+	\item Setup del entorno de trabajo para desarrollo del software necesario (5h)
+	\item Implementación de micro-ROS en el sistema embebido (total: 18h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas h)
+		\item Introducción a micro-ROS (4h)
+		\item Incorporación de micro-ROS en el microcontrolador (8h)
+		\item Setup de agente de ROS 2 y comunicación con sistema embebido (2h)
+		\item Documentación del proceso (4h)
 	\end{enumerate}
-\item Grupo de tareas 2
+	\item Desarrollo de driver para la IMU (total: 40h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
+		\item Selección y adquisición de la IMU a utilizar (2h)
+		\item Implementación de driver en lenguaje C para el sistema embebido (30h)
+		\item Documentación del driver (8h)
 	\end{enumerate}
-\item Grupo de tareas 3
+	\item Integración de la IMU en el sistema (total: 60h)
 	\begin{enumerate}
-	\item Tarea 1 (tantas h)
-	\item Tarea 2 (tantas h)
-	\item Tarea 3 (tantas h)
-	\item Tarea 4 (tantas h)
-	\item Tarea 5 (tantas h)
+		\item Integración de driver de la IMU con el sistema con micro-ROS (4h)
+		\item Repaso (e investigación) de técnicas de fusión sensorial (8h)
+		\item Implementación de algoritmos de fusión sensorial (30h)
+		\item Visualización de la información obtenida con la IMU mediante las herramientas de ROS 2 (10h)
+		\item Evaluación parcial de resultados y documentación de los mismos (milestone) (8h)
 	\end{enumerate}
-\end{enumerate}
+	\item Desarrollo de driver para la cámara (total: 53h)
+	\begin{enumerate}
+		\item Selección y adquisición de cámara a utilizar (3h)
+		\item Implementación de driver en lenguaje C para el sistema embebido (40h)
+		\item Documentación del driver (10h)
+	\end{enumerate}
+	\item Integración de la cámara en el sistema (26h)
+	\begin{enumerate}
+		\item Integración del driver de la cámara con el sistema con micro-ROS (6h)
+		\item Visualización de la información obtenida con la cámara mediante las herramientas de ROS 2 (12h)
+		\item Evaluación parcial de resultados y documentación de los mismos (milestone) (8h)
+	\end{enumerate}
+	\item Implementación de algoritmo de SLAM monocular (345h)
+	\begin{enumerate}
+		\item Introducción a navegación inercial y SLAM monocular, investigación de estado del arte (15h)
+		\item Investigación de algoritmos de SLAM monocular y selección de uno a implementar (30h)
+		\item Implementación del algoritmo seleccionado en un entorno de simulación (80h)
+		\item Evaluación integral de los componentes del sistema (20h)
+		\item Implementación del algoritmo seleccionado sobre la plataforma desarrollada (120h)
+		\item Evaluación final de resultados (milestone) (40h)
+		\item Documentación técnica del algoritmo seleccionado y resumen del estado del arte (40h)
+	\end{enumerate}
+	\item Elaboración de memoria técnica (80h)
+\end{itemize}
 
-Cantidad total de horas: (tantas h)
+Cantidad total de horas: 627h
 
-Se recomienda que no haya ninguna tarea que lleve más de 40 h. 
-
-\end{consigna}
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[]
+\caption{WBS: Desglose del trabajo en tareas}
+\label{tab:wbs}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Código} & \textbf{Predecesora} & \textbf{Descripción}                               & \textbf{Duración} \\ \midrule
+1               &                      & Setup del entorno de trabajo                       & 5h                \\
+2               &                      & Implementación de micro-ROS                        & 18h               \\
+2.1             &                      & Introducción a micro-ROS                           & 4h                \\
+2.2             & 1, 2.1               & Incorporación de micro-ROS en el sistema           & 8h                \\
+2.3             & 2.2                  & Setup del agente de ROS 2                          & 2h                \\
+2.4             & 2.3                  & Documentación del proceso                          & 4h                \\
+3               &                      & Desarrollo de driver para la IMU                   & 40h               \\
+3.1             &                      & Selección y adquisición de la IMU a utilizar       & 2h                \\
+3.2             & 1, 3.1               & Implementación de driver para el sistema embebido  & 30h               \\
+3.3             & 3.2                  & Documentación del driver                           & 8h                \\
+4               &                      & Integración de la IMU en el sistema                & 60h               \\
+4.1             & 2.3, 3.2             & Integración del driver de la IMU con micro-ROS     & 4h                \\
+4.2             &                      & Repaso de técnicas de fusión sensorial             & 8h                \\
+4.3             & 3.2, 4.2             & Implementación de algoritmos de fusión sensorial   & 30h               \\
+4.4             & 4.1                  & Visualización de la información mediante ROS 2     & 10h               \\
+4.5             & 4.3, 4.4             & Evaluación parcial de resultados y documentación   & 8h                \\
+5               &                      & Desarrollo de driver para la cámara                & 53h               \\
+5.1             &                      & Selección y adquisición de la cámara a utilizar    & 3h                \\
+5.2             & 1, 5.1               & Implementación de driver para el sistema embebido  & 40h               \\
+5.3             & 5.2                  & Documentación del driver                           & 10h               \\
+6               &                      & Integración de la cámara en el sistema             & 26h               \\
+6.1             & 2.3, 5.2             & Integración del driver de la cámara con micro-ROS  & 6h                \\
+6.2             & 6.1                  & Visualización de la información mediante ROS 2     & 12h               \\
+6.3             & 6.2                  & Evaluación parcial de resultados y documentación   & 8h                \\
+7               &                      & Implementación de algoritmo de SLAM monocular      & 345h              \\
+7.1             &                      & Investigación del estado del arte de SLAM          & 15h               \\
+7.2             & 7.1                  & Investigación y selección de algoritmos de SLAM    & 30h               \\
+7.3             & 1, 7.2               & Implementación del algoritmo en simulación         & 80h               \\
+7.4             & 4.5, 6.3        & Evaluación integral de los componentes del sistema & 20h               \\
+7.5             & 7.3, 7.4                  & Implentación del algoritmo en el sistema embebido  & 120h              \\
+7.6             & 7.5                  & Evaluación final de resultados                     & 40h               \\
+7.7             & 7.6                  & Documentación técnica del algoritmo                & 50h               \\
+8               & 7.6                  & Elaboración de memoria técnica                     & 80h               \\ \bottomrule
+\end{tabular}
+\end{table}
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior. 
+% \begin{consigna}{red}
+% Armar el AoN a partir del WBS definido en la etapa anterior. 
 
 %La figura \ref{fig:AoN} fue elaborada con el paquete latex tikz y pueden consultar la siguiente referencia \textit{online}:
 
 %\url{https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ:_A_Tutorial_for_Beginners_(Part_3)\%E2\%80\%94Creating_Flowcharts}
 
-\end{consigna}
+% \end{consigna}
 
+
+\begin{landscape}
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
+\includegraphics[width=1.5\textwidth]{./Figuras/MonoSLAM-AoN.png}
 \caption{Diagrama de \textit{Activity on Node}.}
 \label{fig:AoN}
 \end{figure}
+\end{landscape}
 
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semicríticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color, como se muestra en el siguiente ejemplo:
+% Indicar claramente en qué unidades están expresados los tiempos.
+% De ser necesario indicar los caminos semicríticos y analizar sus tiempos mediante un cuadro.
+% Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color, como se muestra en el siguiente ejemplo:
 
 
 
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 
-\begin{consigna}{red}
+% \begin{consigna}{red}
 
-Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
+% Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
 
-\begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
-\end{itemize}
+% \begin{itemize}
+% \item Planner
+% \item GanttProject
+% \item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
+% \item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
+% \item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
+% \end{itemize}
 
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
+% Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
+% Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
 
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
+% Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
+% Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
+% Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
 
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de Gantt realizado con el paquete de \textit{pgfgantt}. En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
+% En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de Gantt realizado con el paquete de \textit{pgfgantt}. En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
 
-\begin{figure}[htbp]
-\begin{center}
-\begin{ganttchart}{1}{12}
-  \gantttitle{2020}{12} \\
-  \gantttitlelist{1,...,12}{1} \\
-  \ganttgroup{Group 1}{1}{7} \\
-  \ganttbar{Task 1}{1}{2} \\
-  \ganttlinkedbar{Task 2}{3}{7} \ganttnewline
-  \ganttmilestone{Milestone o hito}{7} \ganttnewline
-  \ganttbar{Final Task}{8}{12}
-  \ganttlink{elem2}{elem3}
-  \ganttlink{elem3}{elem4}
-\end{ganttchart}
-\end{center}
-\caption{Diagrama de Gantt de ejemplo}
-\label{fig:gantt}
-\end{figure}
+% \begin{figure}[htbp]
+% \begin{center}
+% \begin{ganttchart}{1}{12}
+%   \gantttitle{2020}{12} \\
+%   \gantttitlelist{1,...,12}{1} \\
+%   \ganttgroup{Group 1}{1}{7} \\
+%   \ganttbar{Task 1}{1}{2} \\
+%   \ganttlinkedbar{Task 2}{3}{7} \ganttnewline
+%   \ganttmilestone{Milestone o hito}{7} \ganttnewline
+%   \ganttbar{Final Task}{8}{12}
+%   \ganttlink{elem2}{elem3}
+%   \ganttlink{elem3}{elem4}
+% \end{ganttchart}
+% \end{center}
+% \caption{Diagrama de Gantt de ejemplo}
+% \label{fig:gantt}
+% \end{figure}
 
+
+% \begin{landscape}
+% \begin{figure}[htpb]
+% \centering 
+% \includegraphics[height=.85\textheight]{./Figuras/Gantt_v1.png}
+% \caption{Ejemplo de diagrama de Gantt rotado}
+% \label{fig:diagGantt}
+% \end{figure}
+% \end{landscape}
+
+% \end{consigna}
 
 \begin{landscape}
 \begin{figure}[htpb]
 \centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
-\caption{Ejemplo de diagrama de Gantt rotado}
+\includegraphics[height=.8\textheight]{./Figuras/Gantt_v1.png}
+\caption{Diagrama de Gantt del proyecto}
 \label{fig:diagGantt}
 \end{figure}
-
 \end{landscape}
-
-\end{consigna}
 
 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
 
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
-\begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
-\end{itemize}
+% \begin{consigna}{red}
+% Si el proyecto es complejo entonces separarlo en partes:
+% \begin{itemize}
+% 	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
+% 	\item El desglose detallado del subtotal de cada una de las áreas.
+% \end{itemize}
 
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
+% IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
 
-\end{consigna}
+% \end{consigna}
 
 \begin{table}[htpb]
 \centering
@@ -555,24 +661,28 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+Placa de desarrollo STM32 Nucleo &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{30000 ARS} &
+  \multicolumn{1}{c|}{30000 ARS} \\ \hline
+Cámara &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{5000 ARS} &
+  \multicolumn{1}{c|}{5000 ARS} \\ \hline
+\multicolumn{1}{|l|}{Unidad de medición inercial} &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{5000 ARS} &
+  \multicolumn{1}{c|}{5000 ARS} \\ \hline
+\multicolumn{1}{|l|}{Componentes de electrónica varios} &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{3000 ARS} &
+  \multicolumn{1}{c|}{3000 ARS} \\ \hline
+\multicolumn{1}{|l|}{Hora de ingeniería} &
+  \multicolumn{1}{c|}{600} &
+  \multicolumn{1}{c|}{2500 ARS} &
+  \multicolumn{1}{c|}{1500000 ARS} \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{1543000 ARS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
 \rowcolor[HTML]{C0C0C0} 
@@ -580,20 +690,16 @@ Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
+\multicolumn{1}{|l|}{Transporte} &
+  \multicolumn{1}{c|}{10} &
+  \multicolumn{1}{c|}{100 ARS} &
+  \multicolumn{1}{c|}{1000 ARS} \\ \hline
+\multicolumn{1}{|l|}{Energía eléctrica} &
+  \multicolumn{1}{c|}{1} &
+  \multicolumn{1}{c|}{2000 ARS} &
+  \multicolumn{1}{c|}{2000 ARS} \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
+  \multicolumn{1}{c|}{3000 ARS} \\ \hline
 \rowcolor[HTML]{C0C0C0}
 \multicolumn{3}{|c|}{TOTAL} &
    \\ \hline
