@@ -20,8 +20,8 @@ codirector, % Uncomment to add a codirector to the title page
 \autor{Ing. Gonzalo Gabriel Fernández} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Nombre del Director}
-\pertenenciaDirector{pertenencia} 
+\director{Dr. Ing. Fabio Ardiani}
+\pertenenciaDirector{Nimble One} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
 \codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
 \pertenenciaCoDirector{FIUBA}
@@ -113,41 +113,6 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-
-% \begin{consigna}{red} % El bloque "consigna" se usa para poner texto en rojo y dar una pequeña ayuda sobre cómo completar la sección. En cada entrega parcial deben eliminar los comandos begin y end del bloque consigna de las secciones que hayan completado.
-
-% El objetivo es que el lector en una o dos páginas entienda de qué trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
-
-% Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cúal es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
-
-% Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
-
-% \begin{itemize}
-% 	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-% 	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-% 	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-% 	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-% 	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-% 	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-% 	\item ¿Por dónde pasa la innovación?
-% \end{itemize}
-
-% La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
-
-% Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
-
-% \begin{figure}[htpb]
-% \centering 
-% \includegraphics[width=.5\textwidth]{./Figuras/diagBloques.png}
-% \caption{Diagrama en bloques del sistema}
-% \label{fig:diagBloques}
-% \end{figure}
-
-% \vspace{25px}
-
-% El tamaño de la tipografía en TODAS las figuras debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama, preferentemente en la gama de colores pastel.
-% \end{consigna}
-
 La navegación autónoma ha sido un tema de investigación activo durante décadas, pero recientemente ha ganado una atención sin precedentes gracias a los avances en tecnologías como la inteligencia artificial y la robótica.
 
 La navegación autónoma se refiere a la capacidad de un sistema para planificar y ejecutar sus propias acciones de manera autónoma, sin la necesidad de una intervención humana constante.
@@ -162,7 +127,7 @@ La odometría visual es una técnica de localización y navegación que se utili
 
 Las técnicas de odometría visual son particularmente útiles en entornos donde el movimiento del robot es predominantemente lateral. Además, se pueden utilizar en combinación con otras técnicas de localización y navegación, como la odometría inercial o la SLAM (\textit{Simultaneous Localization and Mapping}), para mejorar la precisión y la fiabilidad de la localización del robot.
 
-La SLAM es una técnica de visión por computadora que permite a un robot móvil construir un mapa del entorno en el que se encuentra, mientras estima en simulatáneo su propia posición y orientación en ese entorno. En el caso de SLAM monocular, se utiliza una única cámara para capturar imágenes del entorno.
+La SLAM es una técnica de visión por computadora que permite a un robot móvil construir un mapa del entorno en el que se encuentra, mientras estima en simulataneo su propia posición y orientación en ese entorno. En el caso de SLAM monocular, se utiliza una única cámara para capturar imágenes del entorno.
 
 La Fundación Fulgor realiza diversas actividades de investigación. Dentro del campo de navegación autónoma, una de las ramas de interés es la de algoritmos de SLAM monocular en conjunto con la odometría inercial, por las diferentes ventajas que presenta sobre otros métodos. Es por esto que se han realizado experimentos en el marco de la Práctica Profesional Supervisada de la estudiante de grado Evangelina Castellano, implementando y analizando el desempeño de diferentes algoritmos en entornos de simulación.
 
@@ -219,9 +184,9 @@ Usuario final & Grupos de investigación                  &   Fundación Fulgor 
 \end{table}
 
 \begin{itemize}
-	\item Cliente: El \clientename{} se encuentra haciendo su doctorado en la Fundación Fulgor y posee un gran conocimiento sobre los algoritmos utilizados para navegación autónoma a alto nivel. Es capaz de resolver dudas específicas sobre los requerimientos a cumplir con el algoritmo a implementar.
+	\item Cliente: el \clientename{} se encuentra haciendo su doctorado en la Fundación Fulgor y posee un gran conocimiento sobre los algoritmos utilizados para navegación autónoma a alto nivel. Es capaz de resolver dudas específicas sobre los requerimientos a cumplir con el algoritmo a implementar.
 	\item Equipo: Evangelina Castellano se encuentra realizando su Práctica Profesional Supervisada (PPS) en la Fundación Fulgor. Al finalizar su PPS continuará en la institución para realizar su proyecto final de grado. Es necesario planificar teniendo en cuenta que la dedicación es simple, es decir, entre 4 y 5 horas diarias.
-	\item Usuario final: No esta representado por una persona particular. Una vez finalizado el proyecto el prototipo quedará disponible en la Fundación Fulgor para su uso.
+	\item Usuario final: no esta representado por una persona particular. Una vez finalizado el proyecto el prototipo quedará disponible en la Fundación Fulgor para su uso.
 \end{itemize}
 
 \section{3. Propósito del proyecto}
@@ -236,23 +201,12 @@ La técnica de SLAM monocular es de interés por su aplicación en la navegació
 
 El proyecto incluye el diseño del sistema embebido, el desarrollo de los drivers de los sensores asociados a las técnicas de SLAM monocular, la incorporación de la interfaz de micro-ROS en el proyecto, la aplicación de ROS 2 que permitirá interactuar con el sistema a alto nivel y la investigación e implementación de un algoritmo de SLAM monocular adecuado.
 
-El proyecto no incluye el desarrollo de algoritmos de navegación autónoma asociados a la planificación y ejecución de trayectorias del vehículo, ni el modelado matemático del mismo. Tampoco incluye optimización de los algoritmos planteados con el uso de hardware dedicado como una FPGA, por ser una actividad que se realizará en una segunda etapa del proyecto.
+El proyecto no incluye el desarrollo de algoritmos de navegación autónoma asociados a la planificación y ejecución de trayectorias del vehículo, ni el modelado matemático de este. Tampoco incluye optimización de los algoritmos planteados con el uso de hardware dedicado como una FPGA, por ser una actividad que se realizará en una segunda etapa del proyecto.
 
 Por lo tanto, el producto final esperado es un prototipo de un sistema embebido con los correspondientes sensores y herramientas necesarias funcionando en conjunto con técnicas de SLAM monocular, que un vehículo móvil pueda incorporar para dotarlo con capacidades de navegación autónoma.
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
-
-% \begin{consigna}{red}
-% ``Para el desarrollo del presente proyecto se supone que: ...''
-
-% \begin{itemize}
-% 	\item Supuesto 1
-% 	\item Supuesto 2...
-% \end{itemize}
-
-% Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-% \end{consigna}
 
 Para el desarrollo del presente proyecto se supone que:
 
@@ -267,44 +221,9 @@ Para el desarrollo del presente proyecto se supone que:
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-% \begin{consigna}{red}
-% Los requerimientos deben numerarse y de ser posible estar agruparlos por afinidad, por ejemplo:
-
-% \begin{enumerate}
-% 	\item Requerimientos funcionales
-% 		\begin{enumerate}
-% 			\item El sistema debe...
-% 			\item Tal componente debe...
-% 			\item El usuario debe poder...
-% 		\end{enumerate}
-% 	\item Requerimientos de documentación
-% 		\begin{enumerate}
-% 			\item Requerimiento 1
-% 			\item Requerimiento 2 (prioridad menor)
-% 		\end{enumerate}
-% 	\item Requerimiento de testing...
-% 	\item Requerimientos de la interfaz...
-% 	\item Requerimientos interoperabilidad...
-% 	\item etc...
-% \end{enumerate}
-
-% Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-% Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-% No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
-
-% Y al escribirlos seguir las siguientes reglas:
-% \begin{itemize}
-% 	\item Ser breve y conciso (nadie lee cosas largas). 
-% 	\item Ser específico: no dejar lugar a confusiones.
-% 	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-% \end{itemize}
-
-% \end{consigna}
-
-Requerimientos funcionales:
-\begin{itemize}
+\begin{enumerate}
+\item Requerimientos funcionales:
+\begin{enumerate}
 	\item El driver de la Unidad de Medición Inercial (IMU por sus siglas en inglés) debe ofrecer la información del giróscopo y acelerómetro de forma completa a la aplicación.
 	\item El sistema debe utilizar algoritmos y técnicas de fusión sensorial para optimizar el uso de la información obtenida por la IMU.
 	\item El driver de la IMU debe brindar todas las posibilidades de configuración necesarias para poder adaptar la escala y frecuencia de muestreo de los sensores a los requisitos de la aplicación.
@@ -314,27 +233,28 @@ Requerimientos funcionales:
 	\item El sistema embebido debe hacer un uso adecuado de los mecanismos de comunicación de micro-ROS con ROS 2 para explotar todas las ventajas que ofrece el framework.
 	\item El sistema debe estar diseñado de forma modular para favorecer su escalabilidad.
 	\item El sistema debe ejecutar un algoritmo investigado previamente de SLAM monocular.
-\end{itemize}
+\end{enumerate}
 
-Requerimientos de documentación:
-\begin{itemize}
+\item Requerimientos de documentación:
+\begin{enumerate}
 	\item Todas aquellas funcionalidades cubiertas en el driver de la IMU deben estar completamente documentadas para que el módulo de software pueda utilizarse independientemente del proyecto.
 	\item El proceso de incorporación y uso de las librerías de micro-ROS debe estar correctamente documentado para facilitar el desarrollo continuo del sistema.
 	\item La investigación del estado del arte en el tópico de algoritmos de SLAM monocular debe estar debidamente documentada.
 	\item El algoritmo seleccionado para implementar en el sistema debe estar documentado en forma detallada.
-\end{itemize}
+\end{enumerate}
 
-Requerimientos de testing:
-\begin{itemize}
+\item Requerimientos de testing:
+\begin{enumerate}
 	\item Se deben aplicar herramientas y metodologías de testing en los drivers de los módulos para asegurar su funcionamiento y calidad.
-\end{itemize}
+\end{enumerate}
 
-Requerimientos de la interfaz:
-\begin{itemize}
+\item Requerimientos de la interfaz:
+\begin{enumerate}
 	\item Las herramientas desarrolladas en el entorno de ROS 2 deben también cumplir el propósito de interfaz gráfica y permitir la visualización de la información obtenida a través de los sensores.
 	\item El sistema desarrollado con ROS 2 debe ofrecer herramientas que permitan operar y reconfigurar el sistema.
 	\item El sistema desarrollado con ROS 2 debe ofrecer herramientas que permitan evaluar el desempeño del algoritmo implementado, como puede ser el ajuste de parámetros del sistema \textit{on-the-fly}, la visualización del mapa del entorno y la ubicación espacial de la plataforma en él y otras herramientas que se consideren necesarias.
-\end{itemize}
+\end{enumerate}
+\end{enumerate}
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
@@ -348,30 +268,60 @@ Se identifican los siguientes roles/usuarios:
 
 La ponderación de cada historia de usuario se obtiene de una evaluación sobre tres ejes: tiempo, dificultad e incertidumbre. Sobre cada eje se asigna un valor en una escala entre 0 y 5, luego este valor se penaliza según la relevancia asignada a cada aspecto: tiempo 0.4, dificultad 0.2 e incertidumbre 0.4. Para obtener el puntaje final de la historia se divide el resultado parcial por 5 y se multiplica por 100.
 
+\newpage
 \textbf{Historia 1 de usuario 1:} como investigador en el área de Ciencias de la Computación quiero poder utilizar los sensores de SLAM monocular como si fueran una caja negra, quiero que sea sencillo aprender a utilizarlo e incorporarlo en mi flujo de trabajo para bajar de forma sencilla al dispositivo los algoritmos implementados a alto nivel en la simulación.
 
-Tiempo: 4. Dificultad: 3. Incertidumbre: 2. Puntaje: 60 
+\begin{itemize}
+	\item Tiempo: 4.
+	\item Dificultad: 3.
+	\item Incertidumbre: 2.
+	\item Puntaje: 60 
+\end{itemize}
 
 \textbf{Historia 2 de usuario 1:} como investigador en el área de Ciencias de la Computación quiero poder visualizar la información obtenida por los sensores y utilizarla como entrada a simulaciones virtuales.
 
-Tiempo: 3. Dificultad: 2. Incertidumbre: 1. Puntaje: 40 
+\begin{itemize}
+	\item Tiempo: 3.
+	\item Dificultad: 2.
+	\item Incertidumbre: 1.
+	\item Puntaje: 40 
+\end{itemize}
 
 \textbf{Historia 1 de usuario 2:} como investigador en el área de la electrónica quiero poder entender rápido cómo esta conformado el sistema y que sea lo suficientemente modular como para modificar, mejorar y/o intercambiar algún componente funcional y que el sistema siga operando sin dificultades.
-% Un ejemplo puede ser la incorporación de una FPGA como hardware dedicado para optimizar alguna etapa del algoritmo.
 
-Tiempo: 4. Dificultad: 3. Incertidumbre: 2. Puntaje: 60
+\begin{itemize}
+	\item Tiempo: 4.
+	\item Dificultad: 3.
+	\item Incertidumbre: 2.
+	\item Puntaje: 60
+\end{itemize}
 
 \textbf{Historia 2 de usuario 2:} como investigador en el área de la electrónica quiero poder reutilizar los componentes que conforman el sistema de forma independiente en un proyecto diferente.
 
-Tiempo: 3. Dificultad: 3. Incertidumbre: 2. Puntaje: 52
+\begin{itemize}
+	\item Tiempo: 3.
+	\item Dificultad: 3.
+	\item Incertidumbre: 2.
+	\item Puntaje: 52
+\end{itemize}
 
 \textbf{Historia 1 de usuario 3:} como parte de la comunidad de código abierto/libre quiero que los materiales utilizados en el prototipo sean accesibles y que el proyecto tenga la documentación completa de las distintas etapas para poner en marcha el sistema.
 
-Tiempo: 5. Dificultad: 1. Incertidumbre: 3. Puntaje: 68
+\begin{itemize}
+	\item Tiempo: 5.
+	\item Dificultad: 1.
+	\item Incertidumbre: 3.
+	\item Puntaje: 68
+\end{itemize}
 
 \textbf{Historia 2 de usuario 3:} como parte de la comunidad de código abierto/libre quiero que el proyecto posea un mecanismo para poder contribuir en cualquiera de sus aspectos dado mi conocimiento específico.
 
-Tiempo: 4. Dificultad: 2. Incertidumbre: 3. Puntaje: 64
+\begin{itemize}
+	\item Tiempo: 4.
+	\item Dificultad: 2.
+	\item Incertidumbre: 3.
+	\item Puntaje: 64
+\end{itemize}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
@@ -402,7 +352,7 @@ Los entregables del proyecto son:
 		\item Definición del propósito y alcance del proyecto (10 h)
 		\item Definición de los requerimientos y entregables (20 h)
 		\item Desglose del trabajo en tareas y obtención del diagrama de Gantt (20 h)
-		\item Análisis de riesgos, gestión de calidad y definción de procesos de cierre (13 h)
+		\item Análisis de riesgos, gestión de calidad y definición de procesos de cierre (13 h)
 	\end{enumerate}
 	\item Setup del entorno de trabajo para desarrollo del software necesario (5 h)
 	\item Implementación de micro-ROS en el sistema embebido (18 h)
@@ -481,7 +431,7 @@ Las tareas expuestas en el diagrama de \textit{Activity On Node}, figura \ref{fi
 \toprule
 \textbf{Código} & \textbf{Predecesora} & \textbf{Descripción}                               & \textbf{Duración} \\ \midrule
 1               &                      & Planificación del proyecto                         & 70 h               \\
-1.1             &                      & Identifiación y contacto con los interesados       & 7 h                \\
+1.1             &                      & Identificación y contacto con los interesados       & 7 h                \\
 1.2             & 1.1                  & Definición del propósito y alcance del proyecto    & 10 h               \\
 1.3             & 1.2                  & Definición de los requerimientos y entregables     & 20 h               \\
 1.4             & 1.3                  & Desglose del trabajo en tareas                     & 20 h               \\
@@ -516,7 +466,7 @@ Las tareas expuestas en el diagrama de \textit{Activity On Node}, figura \ref{fi
 8.3             & 2, 8.2               & Implementación del algoritmo en simulación         & 40 h               \\
 8.4             & 8.3                  & Optimización del algoritmo en simulación           & 40 h               \\
 8.5             & 5.5, 7.3             & Evaluación integral de los componentes del sistema & 20 h               \\
-8.6             & 8.4, 8.5             & Implentación del algoritmo en el sistema embebido  & 40 h               \\
+8.6             & 8.4, 8.5             & Implementación del algoritmo en el sistema embebido  & 40 h               \\
 8.7             & 8.6                  & Optimización del algoritmo en el sistema embebido  & 40 h               \\
 8.8             & 8.7                  & Evaluación final de resultados                     & 40 h               \\
 8.9             & 8.8                  & Documentación técnica del algoritmo                & 50 h               \\
@@ -611,8 +561,8 @@ Las tareas expuestas en el diagrama de \textit{Activity On Node}, figura \ref{fi
 \label{sec:gantt}
 \begin{figure}[htpb]
 \centering 
-\includegraphics[height=.7\textheight]{./Figuras/Gantt_v2.png}
-\caption{Diagrama de Gantt del proyecto.}
+\includegraphics[height=.77\textheight]{./Figuras/Gantt_v2.png}
+%\caption{Diagrama de Gantt del proyecto.}
 \label{fig:diagGantt}
 \end{figure}
 \end{landscape}
@@ -620,17 +570,6 @@ Las tareas expuestas en el diagrama de \textit{Activity On Node}, figura \ref{fi
 
 \section{12. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
-
-% \begin{consigna}{red}
-% Si el proyecto es complejo entonces separarlo en partes:
-% \begin{itemize}
-% 	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-% 	\item El desglose detallado del subtotal de cada una de las áreas.
-% \end{itemize}
-
-% IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
-
-% \end{consigna}
 
 \begin{table}[htpb]
 \centering
@@ -760,14 +699,14 @@ a) Identificación de los riesgos y estimación de sus consecuencias:
 
 Riesgo 1: la IMU o la cámara seleccionadas y adquiridas para el prototipo no tienen buen desempeño en la aplicación del proyecto.
 \begin{itemize}
-	\item Severidad (S): 6, porque impacta en la calidad del resultado final del prototipo pero no impide la obtención de una primera versión de este. 
-	\item Probabilidad de ocurrencia (O): 5, porque es un riesgo contemplado al tener un presupuesto acotado para la adquisición de materiales. Dadas las limitaciones del primer prototipo, se desarrollará una segunda versión con mejoras en estos aspectos, contemplando la adquisición de sensores en el extranjero de ser necesario.
+	\item Severidad (S): 6, porque impacta en la calidad del resultado final del prototipo, pero no impide la obtención de una primera versión de este. 
+	\item Probabilidad de ocurrencia (O): 5, porque es un riesgo contemplado al tener un presupuesto acotado para la adquisición de materiales. Dadas las limitaciones del primer prototipo, se desarrollará una segunda versión con mejoras en estos aspectos, contemplando la adquisición de sensores en el extranjero, de ser necesario.
 \end{itemize}
 
 Riesgo 2: hay cambios o imprevistos (ej., licencias) en el equipo de trabajo.
 \begin{itemize}
 	\item Severidad (S): 8, porque el grupo de trabajo es reducido y por lo tanto poco flexible a limitaciones adicionales en los recursos humanos disponibles.
-	\item Probabilidad de ocurrencia (O): 6, porque Evangelina Castellano, colaboradora en el poryecto, puede inclinarse por otra temática para su proyecto final de grado una vez finalizada su PPS.
+	\item Probabilidad de ocurrencia (O): 6, porque Evangelina Castellano, colaboradora en el proyecto, puede inclinarse por otra temática para su proyecto final de grado una vez finalizada su PPS.
 \end{itemize}
 
 Riesgo 3: el responsable del proyecto puede dedicar menos de 25 horas semanales a las actividades del plan.
@@ -784,7 +723,7 @@ Riesgo 4: hay cambios en los requerimientos funcionales del proyecto.
 
 Riesgo 5: las limitaciones en el hardware impiden un buen desempeño del algoritmo investigado.
 \begin{itemize}
-	\item Severidad (S): 8, porque es un riesgo que de presentarse será en una instancia avanzada del proyecto.
+	\item Severidad (S): 8, porque es un riesgo que, de presentarse, será en una instancia avanzada del proyecto.
 	\item Probabilidad de ocurrencia (O): 6, porque es conocida la cantidad de recursos demandada por los algoritmos de SLAM.
 \end{itemize}
 
@@ -815,90 +754,73 @@ Riesgo 2: se mantendrán reuniones mensuales con Evangelina Castellano y el \cli
 
 Riesgo 4: se mantendrán reuniones mensuales con el \clientename{} para intercambiar nuevas ideas y ponderar si merecen ser consideradas.
 \begin{itemize}
-	\item Severidad (S): 4, porque el intercambio mensual permite llevar un registro de las ideas que surjan y descartar con anticipación aquellas que no valgan la pena. Las ideas que se considere que dan un gran valor agregado al proyecto se considerarán con tiempo y se podrá ajustar el plan de trabajo segun sea necesario.
-	\item Probabilidad de ocurrencia (O): 4, porque las reuniones mensuales actuaran de filtro de todos los posibles cambios en los requerimientos.
+	\item Severidad (S): 4, porque el intercambio mensual permite llevar un registro de las ideas que surjan y descartar con anticipación aquellas que no valgan la pena. Las ideas que puedan tener más valor para el proyecto se considerarán con tiempo y se podrá ajustar el plan de trabajo si es necesario.
+	\item Probabilidad de ocurrencia (O): 4, porque las reuniones mensuales actuarán de filtro de todos los posibles cambios en los requerimientos.
 \end{itemize}
 
-Riesgo 5: durante la investigación de los algoritmos SLAM se llevará a cabo un análisis de los recursos necesarios para que el desempeño sea el adecuado, es decir, lo mínimo para considerar que el sistema funciona. Si se anticipa que el hardware esta muy por debajo de lo necesario para el algoritmo, se contemplará ajustar el plan con soluciones como la selección de un algoritmo diferente a implementar, la optimización del algoritmo seleccionado o el uso de una FPGA (todas actividades no contempladas en el plan de trabajo).
+Riesgo 5: durante la investigación de los algoritmos SLAM se llevará a cabo un análisis de los recursos necesarios para que el desempeño sea el adecuado, es decir, lo mínimo para considerar que el sistema funciona. Si se anticipa que el hardware tiene características inferiores a las necesarias para el algoritmo, se contemplará ajustar el plan con soluciones como la selección de un algoritmo diferente a implementar, la optimización del algoritmo seleccionado o el uso de una FPGA (actividades no contempladas en el plan de trabajo).
 \begin{itemize}
-	\item Severidad (S): 7, porque el impacto en el proyecto sigue siendo considerable, pero de ocurrir se contará con la información suficiente como para tomar la decisión correcta.
-	\item Probabilidad de ocurrencia (O): 4, porque el análisis en forma concurrente con la investigación puede permitir una mayor consciencia a la hora de tomar decisiones orientadas a las limitaciones de hardware.
+	\item Severidad (S): 7, porque el impacto en el proyecto sigue siendo considerable, pero de ocurrir, se contará con la información suficiente como para tomar la decisión correcta.
+	\item Probabilidad de ocurrencia (O): 4, porque el análisis en forma concurrente con la investigación puede permitir tener mejor información para tomar decisiones orientadas a las limitaciones de hardware.
 \end{itemize}
 
 \section{14. Gestión de la calidad}
 \label{sec:calidad}
 
-% \begin{consigna}{red}
-% Elija al menos diez requerientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
-
-% \begin{itemize} 
-% \item Req \#1: copiar acá el requerimiento.
-
-% \begin{itemize}
-% 	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar 
-% 	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar  
-% \end{itemize}
-
-% \end{itemize}
-
-% Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
-
-% \end{consigna}
-
 \begin{itemize}
-	\item Req \#1: El driver de la IMU debe ofrecer la información del giróscopo y acelerómetro de forma completa a la aplicación.
+	\item Req \#1.1: el driver de la IMU debe ofrecer la información del giróscopo y acelerómetro de forma completa a la aplicación.
 	\begin{itemize}
 		\item Verificación mediante el análisis de la hoja de datos de la IMU y mediante ensayos donde se observe la correspondencia entre el movimiento del dispositivo y la visualización de los datos obtenidos para cada eje de los sensores que conforman la IMU.
 		\item Validación mediante ensayo del tipo caja negra, donde se observe la correspondencia entre el movimiento del dispositivo y la visualización con la interfaz gráfica del entorno ROS 2 de los datos obtenidos con el algoritmo de fusión sensorial.
 	\end{itemize}
-	\item Req \#2: El sistema debe utilizar algoritmos y técnicas de fusión sensorial para optimizar el uso de la información obtenida por la IMU.
+	\item Req \#1.2: el sistema debe utilizar algoritmos y técnicas de fusión sensorial para optimizar el uso de la información obtenida por la IMU.
 	\begin{itemize}
-		\item Verificación mediante ensayos que evaluen el comportamiento del algoritmo: análisis de estabilidad, seguimiento de variables internas, correspondencia experimental entre la salida del algoritmo con el movimiento real del dispositivo y cualquier otra evaluación pertinente.
+		\item Verificación mediante ensayos que evalúen el comportamiento del algoritmo: análisis de estabilidad, seguimiento de variables internas, correspondencia experimental entre la salida del algoritmo con el movimiento real del dispositivo y cualquier otra evaluación pertinente.
 		\item La validación con el cliente es equivalente a la introducida en el requerimiento \#1, es decir, mediante la visualización de los datos obtenidos a través del algoritmo de fusión sensorial.
 	\end{itemize}
-	\item Req \#3: El driver de la IMU debe brindar todas las posibilidades de configuración necesarias para poder adaptar la escala y frecuencia de muestreo de los sensores a los requisitos de la aplicación.
+	\item Req \#1.3: el driver de la IMU debe brindar todas las posibilidades de configuración necesarias para poder adaptar la escala y frecuencia de muestreo de los sensores a los requisitos de la aplicación.
 	\begin{itemize}
 		\item Verificación mediante el análisis de la hoja de datos de la IMU y la demostración de la correcta configuración del dispositivo.
 		\item Validación mediante la inspección de la documentación generada para el driver de la IMU y la demostración de la correcta configuración del dispositivo a través de la interfaz gráfica del entorno ROS 2.
 	\end{itemize}
-	\item Req \#4: El driver de la cámara debe proveer la información correcta a la aplicación, dadas las capacidades del dispositivo.
+	\item Req \#1.4: el driver de la cámara debe proveer la información correcta a la aplicación, dadas las capacidades del dispositivo.
 	\begin{itemize}
 		\item Verificación mediante el análisis de la hoja de datos de la cámara y mediante la demostración de las imágenes obtenidas a través del driver desarrollado.
 		\item Validación mediante la visualización con la interfaz gráfica del entorno ROS 2 de las imágenes obtenidas a través del driver desarrollado.
 	\end{itemize}
-	\item Req \#5: El driver de la IMU y de la cámara deben implementarse de forma modular para que puedan utilizarse independientemente del proyecto.
+	\item Req \#1.5: el driver de la IMU y de la cámara deben implementarse de forma modular para que puedan utilizarse independientemente del proyecto.
 	\begin{itemize}
 		\item Verificación mediante la inspección del \textit{port} de cada uno de los drivers y la evaluación de su funcionamiento de forma independiente (requerimientos \#1 y \#4).
 		\item Validación mediante la inspección de la documentación generada sobre cómo desarrollar el \textit{port} de los drivers para otros microcontroladores.
 	\end{itemize}
-	\item Req \#6: El sistema embebido debe utilizar micro-ROS para interactuar e integrarse fácilmente con el entorno de desarrollo, monitoreo y evaluación de ROS 2.
+	\item Req \#1.6: el sistema embebido debe utilizar micro-ROS para interactuar e integrarse fácilmente con el entorno de desarrollo, monitoreo y evaluación de ROS 2.
 	\begin{itemize}
 		\item Verificación mediante la demostración del funcionamiento del agente de ROS 2 en comunicación con el sistema embebido, intercambiando datos en un canal genérico.
 		\item La validación es de forma indirecta con la validación de los requerimientos \#1 y \#4, dado que la visualización de los datos obtenidos a través de los sensores es con herramientas de ROS2.
 	\end{itemize}
-	\item Req \#7: El sistema embebido debe hacer un uso adecuado de los mecanismos de comunicación de micro-ROS con ROS 2 para explotar todas las ventajas que ofrece el framework.
+	\item Req \#1.7: el sistema embebido debe hacer un uso adecuado de los mecanismos de comunicación de micro-ROS con ROS 2 para explotar todas las ventajas que ofrece el framework.
 	\begin{itemize}
 		\item Verificación y validación a través del análisis del grafo de comunicación resultante en ROS 2. 
 	\end{itemize}
-	\item Req \#8: El sistema debe estar diseñado de forma modular para favorecer su escalabilidad.
+	\item Req \#1.8: el sistema debe estar diseñado de forma modular para favorecer su escalabilidad.
 	\begin{itemize}
 		\item Verificación mediante la demostración del funcionamiento del sistema anulando (o desactivando) los distintos módulos de forma secuencial.
-		\item Validación mediante la demostración del funcionamiento de enotornos de trabajo pre-definidos en ROS 2 que permitan operar con módulos individuales del sistema. 
+		\item Validación mediante la demostración del funcionamiento de entornos de trabajo predefinidos en ROS 2 que permitan operar con módulos individuales del sistema. 
 	\end{itemize}
-	\item Req \#9: El sistema debe ejecutar un algoritmo investigado previamente de SLAM monocular.
+	\item Req \#1.9: el sistema debe ejecutar un algoritmo investigado previamente de SLAM monocular.
 	\begin{itemize}
 		\item Verificación mediante comparación entre los resultados obtenidos con el mismo algoritmo en un entorno de simulación y los obtenidos con el prototipo real.
 		\item Validación mediante demostración del algoritmo implementado en un entorno de simulación y demostración del prototipo en funcionamiento en un ambiente controlado.
 	\end{itemize}
-	\item Req \#10: Las herramientas desarrolladas en el entorno de ROS 2 deben también cumplir el propósito de interfaz gráfica y permitir la visualización de la información obtenida a través de los sensores.
+	\item Req \#4.1: las herramientas desarrolladas en el entorno de ROS 2 deben también cumplir el propósito de interfaz gráfica y permitir la visualización de la información obtenida a través de los sensores.
 	\begin{itemize}
 		\item Verificación y validación indirecta mediante los requerimientos \#1 y \#4.
 	\end{itemize}
-	\item Req \#11: El sistema desarrollado con ROS 2 debe ofrecer herramientas que permitan operar y reconfigurar el sistema.
+	\item Req \#4.2: el sistema desarrollado con ROS 2 debe ofrecer herramientas que permitan operar y reconfigurar el sistema.
 	\begin{itemize}
 		\item Verificación y validación indirecta mediante los requerimientos \#3 y \#4.
 	\end{itemize}
-	\item Req \#12: El sistema desarrollado con ROS 2 debe ofrecer herramientas que permitan evaluar el desempeño del algoritmo implementado, como puede ser el ajuste de parámetros del sistema \textit{on-the-fly}, la visualización del mapa del entorno y la ubicación espacial de la plataforma en él y otras herramientas que se consideren necesarias.
+	\item Req \#4.3: el sistema desarrollado con ROS 2 debe ofrecer herramientas que permitan evaluar el desempeño del algoritmo implementado, como puede ser el ajuste de parámetros del sistema \textit{on-the-fly}, la visualización del mapa del entorno y la ubicación espacial de la plataforma en él y otras herramientas que se consideren necesarias.
 	\begin{itemize}
 		\item Verificación y validación mediante la demostración del funcionamiento del sistema, cubriendo una lista predefinida detallada de los requisitos que debe cumplir el sistema desarrollado con ROS 2.
 	\end{itemize}
@@ -907,23 +829,9 @@ Riesgo 5: durante la investigación de los algoritmos SLAM se llevará a cabo un
 \section{15. Procesos de cierre}    
 \label{sec:cierre}
 
-% \begin{consigna}{red}
-% Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
-
-% \begin{itemize}
-% 	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:
-% 	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
-% 	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, y los problemas que surgieron y cómo se solucionaron:
-% 	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
-% 	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:
-% 	  - Indicar esto y quién financiará los gastos correspondientes.
-% \end{itemize}
-
-% \end{consigna}
-
 Una vez finalizado el proyecto se realizarán las siguientes actividades:
 \begin{itemize}
-	\item Análisis del grado de cumplimiento de los objetivos y requerimientos junto con el director.
+	\item Análisis del grado de cumplimiento de los objetivos y requerimientos junto con el \supname{}.
 	\item Análisis de cumplimiento de la versión original del plan de trabajo, contrastando el registro de actividades realizadas con el diagrama de Gantt original.
 	\item Análisis del grado de cumplimiento de los objetivos y requerimientos junto con el cliente, el \clientename{}.
 	\item Elaboración de un documento con todos los problemas que surgieron durante el desarrollo del proyecto y las soluciones encontradas.
@@ -931,7 +839,7 @@ Una vez finalizado el proyecto se realizarán las siguientes actividades:
 	\item Elaboración de un documento con el trabajo a futuro, que sirva como base de un plan de proyecto que continue la misma línea de investigación y desarrollo.
 	\item Defensa pública del proyecto por parte del responsable.
 	\item Reunión privada con el equipo de trabajo para compartir \textit{feeedback} sobre la experiencia obtenida en el lapso del proyecto.
-	\item Reunión virtual, organizada por el responsable, con el director del trabajo como acto de agradecimiento.
+	\item Reunión virtual, organizada por el responsable, con el \supname{} como acto de agradecimiento.
 	\item Reunión con el \clientename{} y el equipo de trabajo, organizada por el responsable, para dar un cierre al proyecto y evaluar los próximos proyectos y actividades a realizar en conjunto.
 \end{itemize}
 
