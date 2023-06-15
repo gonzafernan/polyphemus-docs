@@ -202,8 +202,8 @@
 	%\vspace{2cm}
 	\ifbool{codirector}{% If the codirector class option has been specified
 	\vspace{10px}
-	{\normalsize Codirector:\\}
-	{\Large \cosupname  \hspace{1px} (\pertecosupname) \\}
+	%{\normalsize Codirector:\\}
+	%{\Large \cosupname  \hspace{1px} (\pertecosupname) \\}
 	}{\vspace{2pc}%nothing
 	}
 		

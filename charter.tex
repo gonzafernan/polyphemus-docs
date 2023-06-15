@@ -23,8 +23,8 @@ codirector, % Uncomment to add a codirector to the title page
 \director{Dr. Ing. Fabio Ardiani}
 \pertenenciaDirector{Nimble One} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
-\codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
-\pertenenciaCoDirector{FIUBA}
+%\codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
+%\pertenenciaCoDirector{FIUBA}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
 \cliente{Ing. Leandro Borgnino}
@@ -127,7 +127,7 @@ La odometría visual es una técnica de localización y navegación que se utili
 
 Las técnicas de odometría visual son particularmente útiles en entornos donde el movimiento del robot es predominantemente lateral. Además, se pueden utilizar en combinación con otras técnicas de localización y navegación, como la odometría inercial o la SLAM (\textit{Simultaneous Localization and Mapping}), para mejorar la precisión y la fiabilidad de la localización del robot.
 
-La SLAM es una técnica de visión por computadora que permite a un robot móvil construir un mapa del entorno en el que se encuentra, mientras estima en simulataneo su propia posición y orientación en ese entorno. En el caso de SLAM monocular, se utiliza una única cámara para capturar imágenes del entorno.
+La SLAM es una técnica de visión por computadora que permite a un robot móvil construir un mapa del entorno en el que se encuentra, mientras estima en simultaneo su propia posición y orientación en ese entorno. En el caso de SLAM monocular, se utiliza una única cámara para capturar imágenes del entorno.
 
 La Fundación Fulgor realiza diversas actividades de investigación. Dentro del campo de navegación autónoma, una de las ramas de interés es la de algoritmos de SLAM monocular en conjunto con la odometría inercial, por las diferentes ventajas que presenta sobre otros métodos. Es por esto que se han realizado experimentos en el marco de la Práctica Profesional Supervisada de la estudiante de grado Evangelina Castellano, implementando y analizando el desempeño de diferentes algoritmos en entornos de simulación.
 
@@ -185,6 +185,7 @@ Usuario final & Grupos de investigación                  &   Fundación Fulgor 
 
 \begin{itemize}
 	\item Cliente: el \clientename{} se encuentra haciendo su doctorado en la Fundación Fulgor y posee un gran conocimiento sobre los algoritmos utilizados para navegación autónoma a alto nivel. Es capaz de resolver dudas específicas sobre los requerimientos a cumplir con el algoritmo a implementar.
+	\item Orientador: el \supname{} finalizó a finales de 2022 su doctorado en Mecatrónica, Robótica e Ingeniería de Automatización en Isae-Supaero, Toulouse, Francia. Actualmente se encuentra trabajando en Nimble One como investigador especialista en locomoción robótica. Se encuentra ubicado en Toulouse, Francia, y se mantendrán reuniones remotas cada dos semanas. La periodicidad de las reuiniones se ajustará segun lo demanden las actividades del proyecto y la disponibilidad del responsable y el orientador.
 	\item Equipo: Evangelina Castellano se encuentra realizando su Práctica Profesional Supervisada (PPS) en la Fundación Fulgor. Al finalizar su PPS continuará en la institución para realizar su proyecto final de grado. Es necesario planificar teniendo en cuenta que la dedicación es simple, es decir, entre 4 y 5 horas diarias.
 	\item Usuario final: no esta representado por una persona particular. Una vez finalizado el proyecto el prototipo quedará disponible en la Fundación Fulgor para su uso.
 \end{itemize}
@@ -268,58 +269,57 @@ Se identifican los siguientes roles/usuarios:
 
 La ponderación de cada historia de usuario se obtiene de una evaluación sobre tres ejes: tiempo, dificultad e incertidumbre. Sobre cada eje se asigna un valor en una escala entre 0 y 5, luego este valor se penaliza según la relevancia asignada a cada aspecto: tiempo 0.4, dificultad 0.2 e incertidumbre 0.4. Para obtener el puntaje final de la historia se divide el resultado parcial por 5 y se multiplica por 100.
 
-\newpage
 \textbf{Historia 1 de usuario 1:} como investigador en el área de Ciencias de la Computación quiero poder utilizar los sensores de SLAM monocular como si fueran una caja negra, quiero que sea sencillo aprender a utilizarlo e incorporarlo en mi flujo de trabajo para bajar de forma sencilla al dispositivo los algoritmos implementados a alto nivel en la simulación.
 
 \begin{itemize}
-	\item Tiempo: 4.
-	\item Dificultad: 3.
-	\item Incertidumbre: 2.
+	\item Tiempo: 4
+	\item Dificultad: 3
+	\item Incertidumbre: 2
 	\item Puntaje: 60 
 \end{itemize}
 
 \textbf{Historia 2 de usuario 1:} como investigador en el área de Ciencias de la Computación quiero poder visualizar la información obtenida por los sensores y utilizarla como entrada a simulaciones virtuales.
 
 \begin{itemize}
-	\item Tiempo: 3.
-	\item Dificultad: 2.
-	\item Incertidumbre: 1.
-	\item Puntaje: 40 
+	\item Tiempo: 3
+	\item Dificultad: 2
+	\item Incertidumbre: 1
+	\item Puntaje: 40
 \end{itemize}
 
 \textbf{Historia 1 de usuario 2:} como investigador en el área de la electrónica quiero poder entender rápido cómo esta conformado el sistema y que sea lo suficientemente modular como para modificar, mejorar y/o intercambiar algún componente funcional y que el sistema siga operando sin dificultades.
 
 \begin{itemize}
-	\item Tiempo: 4.
-	\item Dificultad: 3.
-	\item Incertidumbre: 2.
+	\item Tiempo: 4
+	\item Dificultad: 3
+	\item Incertidumbre: 2
 	\item Puntaje: 60
 \end{itemize}
 
 \textbf{Historia 2 de usuario 2:} como investigador en el área de la electrónica quiero poder reutilizar los componentes que conforman el sistema de forma independiente en un proyecto diferente.
 
 \begin{itemize}
-	\item Tiempo: 3.
-	\item Dificultad: 3.
-	\item Incertidumbre: 2.
+	\item Tiempo: 3
+	\item Dificultad: 3
+	\item Incertidumbre: 2
 	\item Puntaje: 52
 \end{itemize}
 
 \textbf{Historia 1 de usuario 3:} como parte de la comunidad de código abierto/libre quiero que los materiales utilizados en el prototipo sean accesibles y que el proyecto tenga la documentación completa de las distintas etapas para poner en marcha el sistema.
 
 \begin{itemize}
-	\item Tiempo: 5.
-	\item Dificultad: 1.
-	\item Incertidumbre: 3.
+	\item Tiempo: 5
+	\item Dificultad: 1
+	\item Incertidumbre: 3
 	\item Puntaje: 68
 \end{itemize}
 
 \textbf{Historia 2 de usuario 3:} como parte de la comunidad de código abierto/libre quiero que el proyecto posea un mecanismo para poder contribuir en cualquiera de sus aspectos dado mi conocimiento específico.
 
 \begin{itemize}
-	\item Tiempo: 4.
-	\item Dificultad: 2.
-	\item Incertidumbre: 3.
+	\item Tiempo: 4
+	\item Dificultad: 2
+	\item Incertidumbre: 3
 	\item Puntaje: 64
 \end{itemize}
 
