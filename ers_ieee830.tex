@@ -1,0 +1,538 @@
+% Created 2020-04-24 vie 23:03
+% Intended LaTeX compiler: pdflatex
+\documentclass[12pt,a4paper, twosite]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[left=2.00cm, right=2.50cm, top=2.50cm, bottom=2.00cm]{geometry}
+\usepackage{fancyhdr}
+\fancyhead[RO,LE]{\thepage}
+\fancyhead[LO]{\emph{\uppercase{\leftmark}}}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{1.0pt}
+\pagestyle{fancy}
+\date{}
+\title{ERS: Sistema de SLAM Visual/Inercial monocular}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={IEEE-830},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.2 (Org mode 9.1.9)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Introducción}
+\label{sec:org60390fa}
+
+% En esta sección se proporcionará una introducción a todo el
+% documento de Especificación de Requisitos Software (ERS). Consta de
+% varias subsecciones: propósito, ámbito del sistema, definiciones,
+% referencias y visión general del documento.
+
+
+\subsection{Propósito}
+\label{sec:org434c3ef}
+
+% En esta subsección se definirá el propósito del documento ERS y se
+% especificará a quien va dirigido.
+
+Este documento consiste en la especificación de requerimientos de software para un
+\textit{Sistema de Localización y Mapeo Simultáneo Visual/Inercial}.
+El documento está dirigido a los desarrolladores a cargo del análisis, diseño,
+implementación y evaluación (\textit{testing}).
+
+\subsection{Ámbito del sistema}
+\label{sec:org12e44a1}
+
+% En esta subseccion:
+
+% \begin{itemize}
+% \item Se podrá dar un nombre al futuro sistema (p.ej. MiSistema)
+
+% \item Se explicará lo que el sistema hará y lo que no hará.
+
+% \item Se describirán los beneficios, objetivos y metas que se espera
+% alcanzar con el futuro sistema.
+
+% \item Se referenciarán todos aquellos documentos de nivel superior (p.e en
+% Industria de sistemas, que incluyen hardware y software, deberían
+% mantenerse la consistencia con el documento de especificaciones de
+% requisitos globales del sistema, si existe)
+% \end{itemize}
+
+El nombre asignado al sistema es "\textit{Polyphemos}", en referencia al cíclope del poema
+griego la \textit{Odisea}. 
+
+El sistema consistirá en un módulo de software con la capacidad de obtener información de una única
+cámara y una unidad de medición inercial (IMU por sus siglas en inglés), ejecutar un algoritmo de
+localización y mapeo simultáneo (SLAM por sus siglas en inglés), para luego brindar a la aplicación
+del usuario información sobre su ubicación y las características espaciales del entorno en el que se
+encuentra.
+
+El usuario podrá integrar el módulo en su aplicación específica y utilizarlo, por ejemplo, para
+realimentar un lazo de control de un robot móvil y dotarlo así de autonomía para la navegación en su
+espacio de trabajo. El sistema no incluye ningun tipo de algoritmo de control o capacidad para
+operar los actuadores de un sistema en particular.
+
+El sistema funcionará sobre un microcontrolador ARM Cortex-M4, y se comunicará con un sistema en la
+PC del usuario que utiliza el framework de desarrollo de sistemas robóticos distribuidos ROS 2.
+El proyecto \textit{Polyphenos} ofrece a su vez un sistema con dichas características para la
+evaluación, calibración y aprendizaje del usuario sobre el funcionamiento del módulo de software.
+
+El proyecto \textit{Polyphemos} será \textit{open-source} por lo que tendrá la documentación
+y herramientas adecuadas para que la comunidad pueda ser usuaria y colaboradora del proyecto en una
+etapa estable del éste.
+
+\subsection{Definiciones, Acrónimos y Abreviaturas}
+\label{sec:orgb158e36}
+
+% En esta subsección se definirán todos los términos, acrónimos y
+% abreviaturas utilizadas en la ERS.
+
+\begin{enumerate}
+  \item Definiciones:
+  \begin{itemize}
+    \item Plataforma móvil: Sistema físico sobre el que se encuentra el hardware del proyecto
+    (los sensores y el microcontrolador) que será desplazado sobre el espacio de trabajo que posea
+    la aplicación del usuario.
+    \item Sistema usuario: 
+  \end{itemize}
+  \item Acrónimos:
+  \begin{itemize}
+    \item SLAM: \textit{Simultaneous Localization and Mapping}, Localización y Mapeo Simulatáneo.
+    \item IMU: \textit{Inertial Measurement Unit}, Unidad de Medición Inercial.
+    \item ROS: \textit{Robot Operating System}
+  \end{itemize}
+  \item Abreviatura:
+  \begin{itemize}
+    \item Std: estándar
+  \end{itemize}
+\end{enumerate}
+
+
+\subsection{Referencias}
+\label{sec:org62711e0}
+
+En esta subsección se mostrará una lista completa de todos los
+documentos referenciados en la ERS
+
+
+\subsection{Visión general del documento}
+\label{sec:orgdaca22c}
+
+% Esta subsección describe brevemente los contenidos y la organización
+% del resto de la ERS.
+
+El documento se elaboró según lo especificado en el estándar IEEE Std. 830-1998.
+
+En la sección \ref*{sec:orgc1c4017} se describe la perspectiva del producto y el contexto
+en el que se encuentra bajo un proyecto compuesto por diferentes módulos que interaccionan con
+el descripto en el documento, se enumeran las funciones principales que cumplirá.
+
+
+\section{Descripción general del documento}
+\label{sec:orgc1c4017}
+
+% En esta sección se describen todos aquellos factores que afectan al
+% producto y a sus requisitos. No se describen los requisitos, sino su
+% contexto. Esto permitirá definir con detalle los requisitos en la
+% sección 3, haciendo que sean más fáciles de entender.
+
+% Normalmente, esta sección consta de las siguientes subsecciones:
+% Perspectiva del producto, funciones del producto, características de
+% los usuarios, restricciones, factores que se asumen y futuros
+% requisitos.
+
+
+\subsection{Perspectiva del producto}
+\label{sec:org24980a8}
+
+% Esta subsección debe relacionar el futuro sistema (producto
+% software) con otros productos. Si el producto es totalmente
+% independiente de otros productos, también debe especificarse
+% aquí. Si la ERS define un producto que es parte de un sistema mayor,
+% esta subsección relacionará los requisitos del sistema mayor con la
+% funcionalidad del producto mayor y el producto aquí descripto. Se
+% recomienda utilizar diagramas de bloques.
+
+El producto de software aquí especificado estará vinculado a un prototipo de hardware
+ofrecido por el mismo proyecto, compuesto por la plataforma embebida, es decir,
+un microcontrolador Cortex-M, una cámara OV9655 y la IMU integrada por un MPU6050 (acelerómetro
+y giróscopo) y un magnetómetro HMC5883L (GY273).
+
+El módulo de software será diseñado de forma modular para permitir que los usuarios lo
+adapten a su hardware específico en caso de que este difiera del utilizado en el proyecto, es decir, el usuario será capaz de reemplazar los drivers por defecto con los correspondientes a
+los sensores que posea.
+
+El producto interactuará con el sistema usuario, que consiste en un sistema diseñado con el
+framework ROS 2. Dicho sistema lo provee el usuario o el proyecto, y se ejecuta en la PC del
+usuario bajo un sistema operativo de propósito general (por ejemplo Linux). El sistema posee
+herramientas de visualización y un estándar que respetará para comunicarse con el módulo de 
+software en el sistema embebido.
+
+La comunicación con el sistema usuario es bidireccional: el sistema usuario recibirá la información
+procesada por el producto y también podrá ejecutar rutinas de calibración y configuración del
+módulo de software.
+
+El sistema usuario brindado por el proyecto tiene como objetivo proveer al usuario herramientas de
+evaluación, calibración y aprendizaje del uso del producto. También permite al usuario tomarlo
+como base para el desarrollo de su propio sistema usuario.
+
+\subsection{Funciones del producto}
+\label{sec:orgaf51da6}
+
+% En esta subsección de la ERS se mostrará un resumen, a grandes
+% rasgos, de las funciones del futuro sistema, por ejemplo, en una ERS
+% para un programa de contabilidad, esta subsección mostrará que el
+% sistema soportará el mantenimiento de cuentas, mostrará el estado de
+% las cuentas y facilitará la facturación, sin mencionar el enorme
+% detalle que cada una de estas funciones requiere.
+
+% Las funciones deberán mostrarse de forma organizada, y pueden
+% utilizarse gráficos, siempre y cuando dichos gráficos reflejen las
+% relaciones entre funciones y no el diseño del sistema.
+
+\begin{enumerate}
+  \item Permitirá la configuración de la IMU con consignas provenientes del sistema usuario.
+  \item Proveerá al sistema usuario los datos obtenidos con la IMU sin procesar.
+  \item Proveerá los datos procesados de posición y orientación del sistema físico al sistema
+  usuario.
+  \item Permitirá la calibración de la IMU a través de rutinas determinadas. 
+  \item Proveerá los datos obtenidos por la cámara al sistema usuario.
+  \item Generará un mapa del entorno del sistema desde cero o sobre información previa y brindará
+  al sistema usuario el correspondiente mapa en conjunto con la ubicación del sistema en el mismo.
+\end{enumerate}
+
+\subsection{Características de los usuarios}
+\label{sec:orga40b0ee}
+
+% Esta subsección describirá las características generales de los
+% usuarios del producto, incluyendo nivel educacional, experiencia y
+% experiencia técnica.
+
+Existen diferentes perfiles de usuario final del producto. Se pueden destacar los siguientes:
+
+\begin{itemize}
+  \item Usuario con conocimiento técnico en la aplicación donde incorporará el sistema SLAM, por
+  ejemplo la robótica móvil. Po see conocimientos básicos sobre el framework ROS 2 y el uso del
+  sistema operativo de propósito general donde se ejecutará el sistema usuario. No tienen
+  necesariamente conocimiento técnico de electrónica y sistemas embebidos. Su principal intención
+  es incorporar el sistema SLAM como caja negra en su propio producto.
+  \item Usuario con conocimiento sobre electrónica y sistemas embebidos, con intención de utilizar
+  el sistema SLAM con los sensores de su elección. Utiliza el módulo de software como caja negra e
+  integra sus propios drivers en el sistema. Tiene conocimiento básico del sistema operativo de
+  propósito general donde se ejecutará el sistema usuario, pero no posee conocimiento sobre el
+  framework ROS 2.
+  \item Usuario con conocimiento sobre las tácnicas de SLAM. Su intención es implementar algoritmos
+  propios de SLAM y utilizar el producto como plataforma de desarrollo. Es el único usuario que
+  utiliza el producto como caja blanca (lo que es posible por ser un proyecto \textit{open
+  source}). No tiene conocimiento técnico en electrónica o sistemas embebidos, su principal interes
+  es el hardware e interfaces de software ya definidas.
+\end{itemize}
+
+\subsection{Restricciones}
+\label{sec:org5ca5790}
+
+% Esta subsección describirá aquellas limitaciones que se imponen
+% sobre los desarrolladores del producto.
+
+% \begin{itemize}
+% \item Políticas de la empresa.
+
+% \item Limitaciones del hardware.
+
+% \item Interfaces con otras aplicaciones.
+
+% \item Operaciones paralelas.
+
+% \item Funciones de auditoría
+
+% \item Funciones de control.
+
+% \item Lenguaje(s) de programación
+
+% \item Protocolos de comunicación.
+
+% \item Requisitos de habilidad.
+
+% \item Criticalidad de la aplicación.
+
+% \item Consideraciones acerca de la seguridad.
+% \end{itemize}
+
+\begin{itemize}
+  \item La primera versión del producto no debe considerar el uso de componentes como FPGA para la
+  optimización del algoritmo utilizado.
+  \item La arquitectura de microprocesador que debe utilizar el sistema es ARM Cortex-M4.
+  \item El sistema debe utilizar la librería micro-ROS para la gestión de la comunicación con
+  el sistema usuario.
+  \item El sistema debe utilizar herramientas de evaluación del software desarrollado
+  \item El software debe desarrollarse en lenguaje de programación C.
+  (\textit{testing}).
+  \item El desarrollo de software debe realizarse haciendo uso del sistema de control de versiones
+  Git.
+  \item Se debe utilizar Github como servidor de repositorio Git remoto.
+  \item Se debe documentar el software desarrollado de forma automática con Doxygen, y dicha
+  documentación debe estar disponible publicamente en la web.
+\end{itemize}
+
+\subsection{Suposiciones y dependencias}
+\label{sec:org0ae23fe}
+
+% Esta subsección de la ERS describirá aquellos factores que, si
+% cambian, pueden afectar a los requisitos. Por ejemplo, los
+% requisitos pueden presuponer una cierta organización de ciertas
+% unidades de la empresa, o pueden presuponer que  el sistema correrá
+% sobre cierto sistema operativo. Si cambian dichos detalles en la
+% organización de la empresa, o si cambian ciertos detalles técnicos,
+% como el sistema operativo, puede ser necesario revisar y cambiar los
+% requisitos. 
+
+Para el desarrollo del producto se supone que:
+
+\begin{itemize}
+  \item Los sensores seleccionados tienen un desempeño que permite como mínimo establecer sobre
+  el primer prototipo de hardware que el software desarrollado es funcional.
+  \item El microcontrolador seleccionado tiene la capacidad de cómputo suficiente para ejecutar
+  una primera versión del algoritmo de SLAM.
+\end{itemize}
+
+
+\subsection{Requisitos futuros}
+\label{sec:org33cfcdb}
+
+% Esta subsección esbozará futuras mejoras al sistema, que podrán
+% anlizarse e implementarse en el futuro.
+
+\begin{itemize}
+  \item En el futuro se incorporará la posibilidad de añadir una FPGA al hardware para optimizar el
+  algoritmo utilizado por el sistema y mejorar su desempeño.
+  \item En el futuro se desea incorporar otras arquitecturas de microprocesadores además de
+  ARM Cortex-M4.
+\end{itemize}
+
+\section{Requisitos específicos}
+\label{sec:org40573d1}
+
+% Esta sección contiene los requisitos a un nivel de detalle suficiente
+% como para permitir a los diseñadores diseñar un sistema que
+% satisfaga estos requisitos, y demuestren si el sistema satisface, o
+% no, los requisitos. Todo requisito aquí especificado describirá
+% comportamientos externos del sistema, perceptibles por parte de los
+% usuarios, operadores y otros sistemas. Esta es la sección más larga
+% e importante de la ERS. Deberán aplicarse los siguientes principios:
+
+% \begin{itemize}
+% \item El documento debería ser perfectamente legible por personas de muy
+% distintas formaciones e intereses.
+
+% \item Deberán referenciarse aquellos documentos relevantes que poseen
+% alguna influencia sobre los requisitos.
+
+% \item Todo requisito deberá ser unívocamente identificable mediante algún
+% código o sistema de numeración adecuado.
+
+% \item Lo ideal, aunque en la práctica no siempre realizable, es que los
+% requisitos posean las siguientes características: 
+
+% \begin{itemize}
+% \item \textbf{Corrección:} La ERS es correcta si y sólo si todo requisito que
+% figura aquí(y que será implementado en el sistema) refleja alguna
+% necesidad real. La corrección de la ERS implica que el sistema
+% implementado será el deseado.
+
+% \item \textbf{No ambiguos:} Cada requisito tiene una sola interpretación. Para
+% eliminar la ambigüedad inherente a los requisitos expresados en
+% lenguaje natural, se deberán utilizar gráficos o notaciones
+% formales. En el caso de utilizar términos que, habitualmente,
+% poseen más de una interpretación, se definirán con precisión en
+% glosario.
+
+% \item \textbf{Completos:} Todos los requisitos relevantes han sido incluidos en
+% la ERS. Conviene incluir todas las posibles respuestas del sistema
+% a los datos de entrada, tanto validos como no válidos.
+
+% \item \textbf{Consistentes:} Los requisitos no pueden ser contradictorios. Un
+% conjunto de requisitos contradictorios no es implementable.
+
+% \item \textbf{Clasificados:} Normalmente, no todos los requisitos son igual de
+% importantes. Los requisitos pueden clasificarse por importancia
+% (esenciales, condicionales u opcionales) o por estabilidad (cambios
+% que se espera que afecten al requisito). Esto sirve, ante todo,
+% para no emplear excesivos recursos en implementar requisitos no
+% esenciales.
+
+% \item \textbf{Verificables:} La ERS es verificalble si y sólo si todos sus
+% requisitos son verificables. Un requisito es verificable
+% (testeable) si existe un proceso finito y no costoso para
+% demostrar que el sistema cumple con el requisito. Un requisito
+% ambiguo no es, en general, verificable. Expresiones como a veces,
+% bien, adecuado, etc introducen ambigüedad en los
+% requisitos. Requisitos como "en caso de accidente la nube tóxica
+% no se extenderá más allá de 25km" no es verificable por el alto
+% costo que conlleva.
+
+% \item \textbf{Modificables:} La ERS es modificable si y sólo si se encuentra
+% estructurada de forma que los cambios a los requisitos puedan
+% realizarse de forma fácil, completa y consistente. La utilización
+% de herramientas automáticas de gestión de requisito (por ejemplo
+% RequisitePro o Doors) facilitan enormemente esta tarea.
+
+% \item \textbf{Trazables:} La ERS es trazable si se conoce el origen de cada
+% requisito y facilita la referencia de cada requisito a los
+% componentes y de la implementación. La trazabilidad hacia atrás
+% indica el origen (documento, persona, etc) de cada requisito. La
+% trazabilidad hacia delante de un requisito R indica qué
+% componentes del sistema son los que realizan el registro R.
+% \end{itemize}
+% \end{itemize}
+
+
+\subsection{Interfaces externas}
+\label{sec:orgfd5391f}
+
+% Se describirán los requisitos que afecten a la interfaz de usuario,
+% interfaz con otros sistemas (hardware y software) e interfaces de comunicaciones.
+
+% PYPH
+
+\subsection{Funciones}
+\label{sec:org307bb59}
+
+Esta subsección (quizás la más larga del documento) deberá
+especificar todas aquellas acciones (funciones) que deberá llevar a
+cabo el software. Normalmente (aunque no siempre) son aquellas
+acciones expresables como "el sistema deberá \ldots{}" Si se considera
+necesario, podrán utilizarse notaciones gráficas y tablas, pero
+siempre supeditadas al lenguaje natural, y no al revés.
+
+Es importante tener en cuenta que, en 1983, el estándar de IEEE 830
+establecía que las funciones deberían expresarse como una jerarquía
+funcional (en paralelo con los DFDs propuestas por el análisis
+estructurado). Pero el estándar de IEEE 830, en sus últimas
+versiones, ya permite organizar esta subsección de múltiples formas,
+y sugiere, entre otras, las siguientes:
+
+
+\begin{itemize}
+\item Por tipos de usuarios: 
+    Distintos usuarios poseen distintos requisitos. Para cada clase de
+usuario que exista en la organización, se especificarán los
+requisitos funcionales que le afecten o tengan mayor relación con
+sus tareas.
+\end{itemize}
+
+
+\begin{itemize}
+\item Por objetos:
+   Los objetos son identidades del mundo real que serán reflejadas en
+el sistema. Para cada objeto, se detallarán sus atributos y sus
+funciones. Los objetos pueden agruparse en clases. Esta organización
+de la ERS no quiere decir que el diseño del sistema siga el
+paradigma de Orientación a Objetos.
+\end{itemize}
+
+
+\begin{itemize}
+\item Por estímulos: 
+  Se especificarán los posibles estímulos que recibe el sistema y las
+funciones relacionadas con dicho estímulo.
+\end{itemize}
+
+
+\begin{itemize}
+\item Por jerarquía funcional: 
+   Si ninguna de las anteriores alternativas resulta de ayuda, la
+funcionalidad del sistema se especificará como una jerarquía de
+funciones que comparten entradas, salidas o datos internos. Se
+detallarán las funciones (entrada, proceso, salida) y las
+subfunciones del sistema. Esto no implica que el diseño del sistema
+deba realizarse según el paradigma de diseño estructurado.
+\end{itemize}
+
+
+Para organizar esta subsección de la ERS se elegirá alguna de las
+anteriores alternativas, o incluso alguna otra que se considere más
+conveniente. Deberá, eso sí, justificarse el porqué de tal elección.
+
+
+
+\subsection{Requisitos de rendimiento}
+\label{sec:org94bc543}
+
+Se detallarán los requisitos relacionados con la carga que se espera
+tenga que soportar el sistema. Por ejemplo, el número de terminales,
+el número esperado de usuarios simultaneamente conectados, número de
+transacciones por segundo que deberá soportar el sistema, etc.
+  También, si es necesario, se especificarpán los requisitos de
+datos, es decir, aquellos requisitos que afecten a la información
+que se guardará en la base de datos. Por ejemplo, la frecuencia de
+uso, las capacidades de acceso y la cantidad de registros que se
+espera almacenar (decenas, cientos, miles o millones).
+
+
+\subsection{Restricciones de diseño}
+\label{sec:org49fe900}
+
+
+Todo aquello que restrinja las decisiones relativas al diseño de la
+aplicación: Restricciones de otros estándares, limitaciones del
+hardware, etc.
+
+
+\subsection{Atributos del sistema}
+\label{sec:orgd0babc0}
+
+% Se detallarán los atributos de calidad (las "ilities") del
+% sistema. Fiablidad, manteniblidad, portabilidad, y muy importante,
+% la seguridad. Deberá especificarse qué tipos de usuarios están
+% autorizados, o no, a realizar ciertas tareas, y cómo se
+% implementarán los mecanismos de seguridad (por ejemplo, por medio de
+% un \emph{login} y una \emph{password}).
+
+\begin{enumerate}
+  \item Mantenibilidad
+  \item Modularidad
+  \item Portabilidad
+\end{enumerate}
+
+
+
+\subsection{Otros requisitos}
+\label{sec:org31d2978}
+
+Cualquier otro requisito que no encaje en otra sección.
+
+\newpage
+
+
+\section{Apéndices}
+\label{sec:org75cea03}
+
+Puede contener todo tipo de información relevante para la ERS pero
+que, propiamente, no forme parte de la ERS. Por ejemplo:
+
+\begin{enumerate}
+\item Formatos de entrada/salida de datos, por pantalla o en listados.
+
+\item Resultados de análisis de costes.
+
+\item Restricciones acerca del lenguaje de programación.
+\end{enumerate}
+\end{document}
