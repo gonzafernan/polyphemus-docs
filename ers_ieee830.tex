@@ -141,10 +141,16 @@ documentos referenciados en la ERS
 
 El documento se elaboró según lo especificado en el estándar IEEE Std. 830-1998.
 
-En la sección \ref*{sec:orgc1c4017} se describe la perspectiva del producto y el contexto
+En la sección \ref{sec:orgc1c4017} se describe la perspectiva del producto y el contexto
 en el que se encuentra bajo un proyecto compuesto por diferentes módulos que interaccionan con
-el descripto en el documento, se enumeran las funciones principales que cumplirá.
+el descripto en el documento, se enumeran las funciones principales que cumplirá y en qué tipos
+de usuarios se enfoca el proyecto y cuáles son sus características. Además, se describen las
+restricciones que posee el desarrollo del producto y cuáles son los supuestos en la
+planificación de este. Al final de la sección se enumeran requisitos que se tendrá a futuro y
+que deben considerarse en el desarrollo actual.
 
+En la sección \ref{sec:org40573d1} se enumera en detalle todos los requerimientos de software
+del producto en análisis.
 
 \section{Descripción general del documento}
 \label{sec:orgc1c4017}
@@ -277,19 +283,14 @@ Existen diferentes perfiles de usuario final del producto. Se pueden destacar lo
 % \end{itemize}
 
 \begin{itemize}
-  \item La primera versión del producto no debe considerar el uso de componentes como FPGA para la
-  optimización del algoritmo utilizado.
-  \item La arquitectura de microprocesador que debe utilizar el sistema es ARM Cortex-M4.
-  \item El sistema debe utilizar la librería micro-ROS para la gestión de la comunicación con
-  el sistema usuario.
+  \item El software del proyecto debe desarrollarse en lenguaje de programación C.
+  \item La compilación del software del proyecto debe realizarse con el \textit{toolchain}
+  de GCC para la arquitectura.
   \item El sistema debe utilizar herramientas de evaluación del software desarrollado
-  \item El software debe desarrollarse en lenguaje de programación C.
   (\textit{testing}).
-  \item El desarrollo de software debe realizarse haciendo uso del sistema de control de versiones
-  Git.
+  \item Los desarrolladores deben tener experiencia en el uso del sistema de control de
+  versiones Git.
   \item Se debe utilizar Github como servidor de repositorio Git remoto.
-  \item Se debe documentar el software desarrollado de forma automática con Doxygen, y dicha
-  documentación debe estar disponible publicamente en la web.
 \end{itemize}
 
 \subsection{Suposiciones y dependencias}
@@ -412,89 +413,185 @@ Para el desarrollo del producto se supone que:
 
 % PYPH
 
+\begin{itemize}
+  \item \textbf{[PYPH-RS-001]:} El sistema SLAM ofrecerá conexión con el hardware del sistema
+  usuario a través de un bus serial con baud-rate 115200, 8 bits, 1 bit de stop, sin
+  paridad y sin control de flujo.
+  \item \textbf{[PYPH-RS-002]:} El sistema SLAM ofrecerá conexión inalámbrica con el hardware
+  del sistema usuario a través de Bluetooth.
+  \item \textbf{[PYPH-RS-003]:} El sistema SLAM establecerá un canal de comunicación compatible
+  con el framework ROS 2 dedicado a la configuración del módulo y la información de debug.
+  \item \textbf{[PYPH-RS-004]:} El sistema SLAM establecerá un canal de comunicación compatible
+  con el framework ROS 2 asociado a la IMU que distinga la información vinculada a cada sensor
+  de esta.
+  \item \textbf{[PYPH-RS-005]:} El sistema SLAM establecerá un canal de comunicación compatible
+  con el framework ROS 2 asociado a la cámara.
+  \item \textbf{[PYPH-RS-006]:} El sistema SLAM establecerá un canal de comunicación compatible
+  con el framework ROS 2 asociado a la posición y orientación de la plataforma móvil.
+  \item \textbf{[PYPH-RS-007]:} El sistema SLAM brindará un servicio compatible con el framework
+  ROS 2 que permita actualizar el mapa del entorno en el sistema usuario.
+  \item \textbf{[PYPH-RS-008]:} El sistema SLAM definirá la interfaz que debe respetar el driver
+  de la IMU y además se ofrecerá una implementación para la IMU MPU6050 en conjunto con el
+  magnetómetro HMC5883L (GY273).
+  \item \textbf{[PYPH-RS-009]:} El sistema SLAM definirá la interfaz que debe respetar el driver
+  de la cámara y además se ofrecerá una implementación para el modelo OV9655.
+\end{itemize}
+
 \subsection{Funciones}
 \label{sec:org307bb59}
 
-Esta subsección (quizás la más larga del documento) deberá
-especificar todas aquellas acciones (funciones) que deberá llevar a
-cabo el software. Normalmente (aunque no siempre) son aquellas
-acciones expresables como "el sistema deberá \ldots{}" Si se considera
-necesario, podrán utilizarse notaciones gráficas y tablas, pero
-siempre supeditadas al lenguaje natural, y no al revés.
+% Esta subsección (quizás la más larga del documento) deberá
+% especificar todas aquellas acciones (funciones) que deberá llevar a
+% cabo el software. Normalmente (aunque no siempre) son aquellas
+% acciones expresables como "el sistema deberá \ldots{}" Si se considera
+% necesario, podrán utilizarse notaciones gráficas y tablas, pero
+% siempre supeditadas al lenguaje natural, y no al revés.
 
-Es importante tener en cuenta que, en 1983, el estándar de IEEE 830
-establecía que las funciones deberían expresarse como una jerarquía
-funcional (en paralelo con los DFDs propuestas por el análisis
-estructurado). Pero el estándar de IEEE 830, en sus últimas
-versiones, ya permite organizar esta subsección de múltiples formas,
-y sugiere, entre otras, las siguientes:
+% Es importante tener en cuenta que, en 1983, el estándar de IEEE 830
+% establecía que las funciones deberían expresarse como una jerarquía
+% funcional (en paralelo con los DFDs propuestas por el análisis
+% estructurado). Pero el estándar de IEEE 830, en sus últimas
+% versiones, ya permite organizar esta subsección de múltiples formas,
+% y sugiere, entre otras, las siguientes:
 
+% \begin{itemize}
+% \item Por tipos de usuarios: 
+%     Distintos usuarios poseen distintos requisitos. Para cada clase de
+% usuario que exista en la organización, se especificarán los
+% requisitos funcionales que le afecten o tengan mayor relación con
+% sus tareas.
+% \end{itemize}
+
+
+% \begin{itemize}
+% \item Por objetos:
+%    Los objetos son identidades del mundo real que serán reflejadas en
+% el sistema. Para cada objeto, se detallarán sus atributos y sus
+% funciones. Los objetos pueden agruparse en clases. Esta organización
+% de la ERS no quiere decir que el diseño del sistema siga el
+% paradigma de Orientación a Objetos.
+% \end{itemize}
+
+
+% \begin{itemize}
+% \item Por estímulos: 
+%   Se especificarán los posibles estímulos que recibe el sistema y las
+% funciones relacionadas con dicho estímulo.
+% \end{itemize}
+
+
+% \begin{itemize}
+% \item Por jerarquía funcional: 
+%    Si ninguna de las anteriores alternativas resulta de ayuda, la
+% funcionalidad del sistema se especificará como una jerarquía de
+% funciones que comparten entradas, salidas o datos internos. Se
+% detallarán las funciones (entrada, proceso, salida) y las
+% subfunciones del sistema. Esto no implica que el diseño del sistema
+% deba realizarse según el paradigma de diseño estructurado.
+% \end{itemize}
+
+
+% Para organizar esta subsección de la ERS se elegirá alguna de las
+% anteriores alternativas, o incluso alguna otra que se considere más
+% conveniente. Deberá, eso sí, justificarse el porqué de tal elección.
+
+Referidos a la IMU:
 
 \begin{itemize}
-\item Por tipos de usuarios: 
-    Distintos usuarios poseen distintos requisitos. Para cada clase de
-usuario que exista en la organización, se especificarán los
-requisitos funcionales que le afecten o tengan mayor relación con
-sus tareas.
+  \item \textbf{[PYPH-RS-010]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la IMU, configurar el rango de cada uno de los sensores que la
+  componen, respetando las opciones disponibles de rango en cada uno de ellos.
+  \item \textbf{[PYPH-RS-011]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la IMU, seleccionar la representación numérica que el sistema debe
+  utilzar al publicar los datos sin procesar con la IMU. La selección podrá darse entre un
+  entero sin signo de 16 bits y un valor flotante de precisión simple.
+  \item \textbf{[PYPH-RS-012]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la IMU, configurar la frecuencia de muestreo en cada uno de los
+  sensores de la IMU.
+  \item \textbf{[PYPH-RS-013]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la IMU, reiniciar el driver de la IMU.
+  \item \textbf{[PYPH-RS-014]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la IMU, realizar un chequeo de sanidad para comprobar que la IMU se
+  encuentra disponible. Ante tal mensaje el sistema responderá con otro mensaje en el mismo
+  canal de comunicación, con un identificador de error si no se encuentra disponible, o caso
+  contrario con información del módulo de la IMU (por ejemplo, ID y configuración actual) para
+  que el usuario pueda verificar si el módulo identificado por el sistema es el correcto.
+  \item \textbf{[PYPH-RS-015]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la IMU, solicitar un servicio de calibración de cada uno de sus
+  sensores.
+  \item \textbf{[PYPH-RS-016]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la IMU, solicitar lecturas individuales de cada uno de los sensores
+  de la IMU.
+  \item \textbf{[PYPH-RS-017]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la IMU, solicitar iniciar (y detener) un stream de lecturas en tiempo
+  real de cada uno de los sensores de la IMU.
 \end{itemize}
 
+Referidos a la cámara:
 
 \begin{itemize}
-\item Por objetos:
-   Los objetos son identidades del mundo real que serán reflejadas en
-el sistema. Para cada objeto, se detallarán sus atributos y sus
-funciones. Los objetos pueden agruparse en clases. Esta organización
-de la ERS no quiere decir que el diseño del sistema siga el
-paradigma de Orientación a Objetos.
+  \item \textbf{[PYPH-RS-018]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la cámara, configurar la frecuencia de muestreo de esta.
+  \item \textbf{[PYPH-RS-019]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la cámara, reiniciar el driver de la cámara.
+  \item \textbf{[PYPH-RS-020]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la cámara, realizar un chequeo de sanidad para comprobar que esta se
+  encuentra disponible. Ante tal mensaje el sistema responderá con otro mensaje en el mismo
+  canal de comunicación, con un identificador de error si no se encuentra disponible, o caso
+  contrario con información del módulo de la cámara (por ejemplo, ID y configuración actual) 
+  para que el usuario pueda verificar si el módulo identificado por el sistema es el correcto.
+  \item \textbf{[PYPH-RS-021]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la cámara, solicitar lecturas individuales, es decir, imágenes.
+  \item \textbf{[PYPH-RS-022]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la cámara, solicitar iniciar (y detener) un stream de lecturas en
+  tiempo real de la cámara, es decir, video.
 \end{itemize}
 
+Referidos al módulo de SLAM:
 
 \begin{itemize}
-\item Por estímulos: 
-  Se especificarán los posibles estímulos que recibe el sistema y las
-funciones relacionadas con dicho estímulo.
+  \item \textbf{[PYPH-RS-023]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la configuración del módulo, configurar los distintos parámetros del
+  algoritmo ``\textit{on-the-fly}''.
+  \item \textbf{[PYPH-RS-024]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la posición y orientación de la plataforma móvil, solicitar lecturas individuales del estado actual de posición y orientación de la plataforma móvil.
+  \item \textbf{[PYPH-RS-025]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
+  comunicación asociado a la posición y orientación de la platafirma móvil, solicitar iniciar
+  (y detener) un stream de lecturas en tiempo real de la posición y orientación de la plataforma
+  móvil.
 \end{itemize}
-
-
-\begin{itemize}
-\item Por jerarquía funcional: 
-   Si ninguna de las anteriores alternativas resulta de ayuda, la
-funcionalidad del sistema se especificará como una jerarquía de
-funciones que comparten entradas, salidas o datos internos. Se
-detallarán las funciones (entrada, proceso, salida) y las
-subfunciones del sistema. Esto no implica que el diseño del sistema
-deba realizarse según el paradigma de diseño estructurado.
-\end{itemize}
-
-
-Para organizar esta subsección de la ERS se elegirá alguna de las
-anteriores alternativas, o incluso alguna otra que se considere más
-conveniente. Deberá, eso sí, justificarse el porqué de tal elección.
-
-
 
 \subsection{Requisitos de rendimiento}
 \label{sec:org94bc543}
 
-Se detallarán los requisitos relacionados con la carga que se espera
-tenga que soportar el sistema. Por ejemplo, el número de terminales,
-el número esperado de usuarios simultaneamente conectados, número de
-transacciones por segundo que deberá soportar el sistema, etc.
-  También, si es necesario, se especificarpán los requisitos de
-datos, es decir, aquellos requisitos que afecten a la información
-que se guardará en la base de datos. Por ejemplo, la frecuencia de
-uso, las capacidades de acceso y la cantidad de registros que se
-espera almacenar (decenas, cientos, miles o millones).
+N/A.
 
+% Se detallarán los requisitos relacionados con la carga que se espera
+% tenga que soportar el sistema. Por ejemplo, el número de terminales,
+% el número esperado de usuarios simultaneamente conectados, número de
+% transacciones por segundo que deberá soportar el sistema, etc.
+%   También, si es necesario, se especificarpán los requisitos de
+% datos, es decir, aquellos requisitos que afecten a la información
+% que se guardará en la base de datos. Por ejemplo, la frecuencia de
+% uso, las capacidades de acceso y la cantidad de registros que se
+% espera almacenar (decenas, cientos, miles o millones).
 
 \subsection{Restricciones de diseño}
 \label{sec:org49fe900}
 
 
-Todo aquello que restrinja las decisiones relativas al diseño de la
-aplicación: Restricciones de otros estándares, limitaciones del
-hardware, etc.
+% Todo aquello que restrinja las decisiones relativas al diseño de la
+% aplicación: Restricciones de otros estándares, limitaciones del
+% hardware, etc.
 
+\begin{itemize}
+  \item \textbf{[PYPH-RS-026]:} La arquitectura de microprocesador que debe utilizar el sistema
+  es ARM Cortex-M4.
+  \item \textbf{[PYPH-RS-027]:} La primera versión del producto no debe considerar el uso de
+  componentes como FPGA para la optimización del algoritmo utilizado.
+  \item \textbf{[PYPH-RS-028]:} El sistema debe utilizar la librería micro-ROS para la gestión
+  de la comunicación con el sistema usuario.
+\end{itemize}
 
 \subsection{Atributos del sistema}
 \label{sec:orgd0babc0}
@@ -507,9 +604,27 @@ hardware, etc.
 % un \emph{login} y una \emph{password}).
 
 \begin{enumerate}
-  \item Mantenibilidad
-  \item Modularidad
-  \item Portabilidad
+  \item Mantenibilidad:
+  \begin{itemize}
+    \item \textbf{[PYPH-RS-029]:} Todo el software desarrollado para el sistema SLAM debe
+    tener documentación automática con la herramienta Doxygen. Dicha documentación debe estar
+    disponible públicamente en la web del proyecto.
+    \item \textbf{[PYPH-RS-030]:} El desarrollo del software debe realizarse haciendo uso del
+    sistema de control de versiones Git.
+  \end{itemize}
+  \item Modularidad:
+  \begin{itemize}
+    \item \textbf{[PYPH-RS-031]:} El sistema SLAM debe definir interfaces claras en la
+    implementación del algoritmo, para permitir intercambiar el mismo con otro algoritmo
+    que tenga mismo propósito pero diferentes características.
+  \end{itemize}
+  \item Portabilidad:
+  \begin{itemize}
+    \item \textbf{[PYPH-RS-032]:} El sistema SLAM debe definir archivos de port con el
+    software utilizado que es específico para la arquitectura ARM Cortex-M. Esos archivos de
+    port deben tener una interfaz de abstracción que permita la portabilidad del algoritmo
+    a otras arquitecturas.
+  \end{itemize}
 \end{enumerate}
 
 
@@ -517,7 +632,9 @@ hardware, etc.
 \subsection{Otros requisitos}
 \label{sec:org31d2978}
 
-Cualquier otro requisito que no encaje en otra sección.
+% Cualquier otro requisito que no encaje en otra sección.
+
+N/A.
 
 \newpage
 
@@ -525,14 +642,15 @@ Cualquier otro requisito que no encaje en otra sección.
 \section{Apéndices}
 \label{sec:org75cea03}
 
-Puede contener todo tipo de información relevante para la ERS pero
-que, propiamente, no forme parte de la ERS. Por ejemplo:
+% Puede contener todo tipo de información relevante para la ERS pero
+% que, propiamente, no forme parte de la ERS. Por ejemplo:
 
-\begin{enumerate}
-\item Formatos de entrada/salida de datos, por pantalla o en listados.
+% \begin{enumerate}
+% \item Formatos de entrada/salida de datos, por pantalla o en listados.
 
-\item Resultados de análisis de costes.
+% \item Resultados de análisis de costes.
 
-\item Restricciones acerca del lenguaje de programación.
-\end{enumerate}
+% \item Restricciones acerca del lenguaje de programación.
+% \end{enumerate}
+
 \end{document}
