@@ -133,7 +133,8 @@
 
 \lhead{\includegraphics[width=3.5cm]{./imgs/logoFIUBA.pdf}}
 \chead{}
-\rhead{\normalsize \textrm{Master test plan de proyecto final \\\degreename\\ \authorname}}
+\rhead{\normalsize \textrm{PHPY-DOC-004: Master test plan de proyecto final
+\\\degreename\\ \authorname}}
 \lfoot{ }
 \cfoot{\normalsize Página \thepage \hspace{1px} de \pageref{LastPage}}
 \rfoot{}
@@ -210,7 +211,9 @@
 
     \vfill
     \centering
-    \textit{Este documento fue realizado en el curso de Testing de Software en Sistemas Embebidos\\ entre el \fechaInicioName \hspace{1px} y el  \fechaFinalPlanName.}
+    \textit{Este documento fue realizado en el curso de Testing de Software en Sistemas Embebidos\\
+    entre el \fechaInicioName \hspace{1px} y el  \fechaFinalPlanName.\\
+    PYPH-DOC-004}
 
 	\pagebreak
   }
