@@ -535,4 +535,107 @@ STT &  &  &  & + \\ \bottomrule
 \label{tab:tec-subsys}
 \end{table}
 
+\section{6. Test de subsistema A: driver de la IMU}
+\label{sec:6-test-de-subsistema-a-driver-de-la-imu}
+
+\subsection{Test unitario}
+\label{ssec:test-unitario}
+
+El test unitario del diver de la IMU se realiza mediante \textit{Control Flow Test},
+controlando principalmente los mensajes de error y éxito retornado por las distintas funciones
+que lo componen.
+
+% \subsection{Test de sistema}
+
+\subsection{Test de aceptación}
+\label{ssec:test-de-aceptacion}
+
+A continuación se detallan los test de aceptación a realizar en función de los requerimientos
+planteados en el documento de especificación de requerimientos de software [PYPH-DOC-002-R2].
+
+\subsubsection{Ensayo: Configuración de rango en sensor de la IMU}
+\label{sssec:ensayo-configuracion-de-rango-en-sensor-de-la-imu}
+
+[PYPH-RS-010] \textit{El sistema SLAM debe permitir mediante, un mensaje en el canal de comunicación
+asociado de la IMU, configurar el rango de cada uno de los sensores que la componen, respetando las
+opciones disponibles de rango en cada uno de ellos.}
+
+\begin{itemize}
+	\item \textbf{Estado inicial:} La comunicación con el sistema externo a través de ROS 2 se
+	encuentra establecida. La configuración de la IMU es la dada por la inicialización.
+	\item \textbf{Estado final:} El giróscopo de la IMU se encuentra configurado con un nuevo rango
+	distinto al de la inicialización.
+	\item \textbf{Secuencia de pasos:} Todas las acciones descriptas se ejecutan desde el sistema
+	externo con ROS 2.
+	\begin{enumerate}
+		\item Listar servicios de ROS 2 disponibles.
+		\item Revisar que se encuentre el servicio que permite leer el rango actual del giróscopo
+		en base a la documentación del proyecto.
+		\item Si el servicio no se encuentra el ensayo se considera fallido.
+		\item Mediante el cliente asociado al sericio del punto 2, leer el rango actual del
+		giróscopo.
+		\item Revisar que se encuentre el servicio que permite configurar el rango del giróscopo
+		en base a la documentación del proyecto.
+		\item Si el servicio no se encuentra el ensayo se considera fallido.
+		\item Mediante el cliente asociado al servicio del punto 5, enviar un rango de giróscopo
+		inválido.
+		\item Esperar error en la respuesta del servicio, de lo contrario el ensayo se considera
+		fallido.
+		\item Mediante el cliente asociado al servicio del punto 5, enviar un rango de giróscopo
+		válido y diferente del obtenido en el punto 4.
+		\item Esperar respuesta de configuración correcta de parte del servicio, de lo contrario se
+		considera fallido.
+		\item Si los pasos previos se realizaron con éxito el ensayo se considera cumplido.
+	\end{enumerate}
+\end{itemize}
+
+Ensayos equivalentes para el resto de los sensores que componen la IMU.
+
+\subsubsection{Ensayo: Generación de stream de datos con lecturas de sensor de la IMU}
+\label{sssec:ensayo-generacion-de-stream-de-datos-con-lecturas-de-sensor-de-la-imu}
+
+[PYPH-RS-017] \textit{El sistema SLAM debe permitir, mediante un mensaje en el canal de comunicación
+asociado a la IMU, solicitar iniciar (y detener) un stream de lecturas en tiempo real de cada uno de
+los sensores que la componen.}
+
+\begin{itemize}
+	\item \textbf{Estado inicial:} La comunicación con el sistema externo a través de ROS 2 se
+	encuentra establecida. La configuración de la IMU es la dada por la inicialización.
+	\item \textbf{Estado final:} El sistema externo inició y detuvo un stream de datos con las
+	lecturas obtenidas con el giróscopo de la IMU.
+	\item \textbf{Secuencia de pasos:} Todas las acciones descriptas se ejecutan desde el sistema
+	externo con ROS 2.
+	\begin{enumerate}
+		\item Listar los topics de ROS 2 disponibles.
+		\item Revisar que se encuentre el topic asociado al stream de datos con las lecturas de los
+		tres ejes del giróscopo en base a la documentación del proyecto.
+		\item Si el topic no se encuentra el ensayo se considera fallido.
+		\item Realizar un echo (si es posible graficar mediante una herramienta como
+		\textit{rqt\_graph}) del topic.
+		\item Verificar que no se publican datos en el topic, de lo contrario el ensayo se considera
+		fallido.
+		\item Listar servicios de ROS 2 disponibles.
+		\item Revisar que se encuentre el servicio que permite iniciar y detener un stream de datos
+		con las lecturas de los tres ejes del giróscopo en base a la documentación del proyecto.
+		\item Si el servicio no se encuentra el ensayo se considera fallido.
+		\item Mediante el cliente asociado al sericio del punto 2, iniciar el stream de datos con
+		las lecturas de los tres ejes del giróscopo.
+		\item Realizar un echo (si es posible graficar mediante una herramienta como
+		\textit{rqt\_graph}) del topic.
+		\item Verificar que se publican datos y que se corresponden con los movimientos de la IMU
+		al rotarla manualmente.
+		\item Si los datos no se correponden con los movimientos de la IMU el ensayo se considera
+		fallido.
+		\item Mediante el cliente asociado al servicio del punto 2, detener el stream de datos con
+		las lecturas de los tres ejes del giróscopo.
+		\item Realizar un echo (si es posible graficar mediante una herramienta como
+		\textit{rqt\_graph}) del topic.
+		\item Verificar que no se publican datos en el topic, de lo contrario el ensayo se considera
+		fallido.
+		\item Si los pasos previos se realizaron con éxito el ensayo se considera cumplido.
+	\end{enumerate}
+\end{itemize}
+
+Ensayos equivalentes para el resto de los sensores que componen la IMU.
+
 \end{document}
