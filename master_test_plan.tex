@@ -72,6 +72,7 @@ Revisión &
 & Fecha
 \\ \hline
 0 & Creación del documento & 15 de octubre de 2023 \\ \hline
+1 & Detalle de tests para el subsistema A & 16 de octubre de 2023 \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -526,15 +527,16 @@ Se aplicarán la técnicas de test mencionadas a cada uno de los subsistemas, de
 \begin{tabular}{@{}lcccc@{}}
 \toprule
 Técnica de test & Sub. A & Sub. B & Sub. C & Sub. D \\ \midrule
-ECT & + & + &  &  \\
+ECT &   & + &  &  \\
 CTM &  &  & + &  \\
 CFT & + & + & + & + \\
-STT &  &  &  & + \\ \bottomrule
+STT & + &  &  & + \\ \bottomrule
 \end{tabular}
 \caption{Técnicas de test a aplicar en cada subsistema}
 \label{tab:tec-subsys}
 \end{table}
 
+\pagebreak
 \section{6. Test de subsistema A: driver de la IMU}
 \label{sec:6-test-de-subsistema-a-driver-de-la-imu}
 
@@ -545,7 +547,162 @@ El test unitario del diver de la IMU se realiza mediante \textit{Control Flow Te
 controlando principalmente los mensajes de error y éxito retornado por las distintas funciones
 que lo componen.
 
-% \subsection{Test de sistema}
+\subsection{Test de sistema}
+\label{ssec:test-de-sistema}
+
+A continuación se detallan los test de sistema a realizar para el software vinculado a la IMU.
+
+\subsubsection{Máquina de estados finitos (FSM) de interacción con la IMU}
+\label{sssec:maquina-de-estados-finitos-fsm-de-interaccion-con-la-imu}
+
+En la figura \ref{fig:fsm-de-interaccion-con-la-imu} se observa la máquina de estados finitos
+que utilizada para interactuar con la IMU y sobre la que aplicará la técnica de \textit{State
+Transition Testing}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{imgs/imu_bridge_fsm.png}
+\caption{FSM de interacción con la IMU}
+\label{fig:fsm-de-interaccion-con-la-imu}
+\end{figure}
+
+
+\begin{landscape}
+\subsubsection{Tabla de estados y eventos}
+\label{sssec:tabla-de-estados-y-eventos}
+
+A partir de la máquina de estados de la figura \ref{fig:fsm-de-interaccion-con-la-imu} se obtiene
+la tabla \ref{tab:imu-fsm-estados-y-eventos} de estados y eventos, donde se observa tanto las
+transiciones legales como ilegales.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|
+>{\columncolor[HTML]{EFEFEF}}c |c|c|c|c|c|c|c|c|}
+\hline
+ & \cellcolor[HTML]{EFEFEF}\textbf{INIT} & \cellcolor[HTML]{EFEFEF}\textbf{IDLE} & \cellcolor[HTML]{EFEFEF}\textbf{SANITY} & \cellcolor[HTML]{EFEFEF}\textbf{CONFIG} & \cellcolor[HTML]{EFEFEF}\textbf{READ} & \cellcolor[HTML]{EFEFEF}\textbf{STREAM} & \cellcolor[HTML]{EFEFEF}\textbf{ERROR} & \cellcolor[HTML]{EFEFEF}\textbf{DEINIT} \\ \hline
+evCorrectInit & 1. IDLE & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet \\ \hline
+evExecSanity & \textbullet & 2. SANITY & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet \\ \hline
+evDriverConfig & \textbullet & 3. CONFIG & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet \\ \hline
+evExecRead & \textbullet & 4. READ & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet \\ \hline
+evStreamInit & \textbullet & 5. STREAM & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet \\ \hline
+evDoneSanity & \textbullet & \textbullet & 7. IDLE & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet \\ \hline
+evExit & \textbullet & \textbullet & \textbullet & 9. IDLE & \textbullet & 13. IDLE & \textbullet & \textbullet \\ \hline
+evDoneRead & \textbullet & \textbullet & \textbullet & \textbullet & 11. IDLE & \textbullet & \textbullet & \textbullet \\ \hline
+evErrorHandler & \textbullet & 6. ERROR & 8. ERROR & 10. ERROR & 12.ERROR & 14. ERROR & \textbullet & \textbullet \\ \hline
+evDriverDeinit & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet & 15. DEINIT & \textbullet \\ \hline
+evDriverInit & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet & \textbullet & 16. INIT \\ \hline
+\end{tabular}
+\caption{Tabla de estados y eventos asociada a la FSM de interacción con la IMU}
+\label{tab:imu-fsm-estados-y-eventos}
+\end{table}
+\end{landscape}
+
+\subsubsection{Árbol de transiciones}
+\label{sssec:arbol-de-transiciones}
+
+A partir de la tabla \ref{tab:imu-fsm-estados-y-eventos} se puede general el árbol de transiciones
+de la figura \ref{fig:arbol-de-transiciones}, donde se observan 9 caminos de test diferentes.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{imgs/imu_bridge_fsm-transition_tree.png}
+\caption{Árbol de transiciones asociada a la FSM de interacción con la IMU}
+\label{fig:arbol-de-transiciones}
+\end{figure}
+
+\subsubsection{Casos de prueba para la FSM}
+\label{sssec:casos-de-prueba-para-la-fsm}
+
+A partir del árbol de transiciones de la figura \ref{fig:arbol-de-transiciones} se obtiene la
+tabla \ref{tab:fsm-imu-casos-legales} con todos los casos legales a cubrir y de la cual se puede
+generar 9 scripts de test diferentes (L1 a L9) que seguirán la secuencia de eventos descripta.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor[HTML]{EFEFEF}
+\textbf{ID} & \textbf{Evento de entrada} & \textbf{Acción esperada} & \textbf{Estado esperado} \\ \hline
+L1.1 & evCorrectInit & DriverInit & IDLE \\ \hline
+L1.2 & evExecSanity & ExecSanity & SANITY \\ \hline
+L1.3 & evDoneSanity &  & IDLE \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L2.1 & evCorrectInit & DriverInit & IDLE \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L2.2 & evExecSanity & ExecSanity & SANITY \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L2.3 & evErrorHandler & ErrorFlag & ERROR \\ \hline
+L3.1 & evCorrectInit & DriverInit & IDLE \\ \hline
+L3.2 & evDriverConfig & RecvConfig & CONFIG \\ \hline
+L3.3 & evExit &  & IDLE \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L4.1 & evCorrectInit & DriverInit & IDLE \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L4.2 & evDriverConfig & RecvConfig & CONFIG \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L4.3 & evErrorHandler & ErrorFlag & ERROR \\ \hline
+L5.1 & evCorrectInit & DriverInit & IDLE \\ \hline
+L5.2 & evExecRead & ExecRead & READ \\ \hline
+L5.3 & evDoneRead &  & IDLE \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L6.1 & evCorrectInit & DriverInit & IDLE \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L6.2 & evExecRead & ExecRead & READ \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L6.3 & evErrorHandler & ErrorFlag & ERROR \\ \hline
+L7.1 & evCorrectInit & DriverInit & IDLE \\ \hline
+L7.2 & evStreamInit & StreamInit & STREAM \\ \hline
+L7.3 & evExit &  & IDLE \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L8.1 & evCorrectInit & DriverInit & IDLE \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L8.2 & evStreamInit & StreamInit & STREAM \\ \hline
+\rowcolor[HTML]{EFEFEF}
+L8.3 & evErrorHandler & ErrorFlag & ERROR \\ \hline
+L9.1 & evCorrectInit & DriverInit & IDLE \\ \hline
+L9.2 & evErrorHandler & ErrorFlag & ERROR \\ \hline
+L9.3 & evDriverDeinit & DriverDeinit & DEINIT \\ \hline
+L9.4 & evDriverInit & DriverInit & INIT \\ \hline
+\end{tabular}
+\caption{Casos de prueba legales para la FSM de interacción con la IMU}
+\label{tab:fsm-imu-casos-legales}
+\end{table}
+
+De la tabla \ref{tab:imu-fsm-estados-y-eventos} se puede generar los casos de prueba ilegales,
+no descriptos en el documento por la cantidad de casos ilegales posibles.
+
+% \begin{plantuml}
+% @startuml
+% [*] --> INIT
+
+% INIT : entry/DriverInit
+% INIT --> OP\_MODE : evCorrectInit
+
+% state OP\_MODE {
+%     [*] --> IDLE
+%     IDLE --> SANITY : evExecSanity
+%     IDLE --> CONFIG : evDriverConfig
+%     IDLE --> READ : evExecRead
+%     IDLE --> STREAM : evStreamInit
+
+%     SANITY : entry/ExecSanity
+%     SANITY --> IDLE : evDoneSanity
+
+%     CONFIG --> IDLE : evExit
+
+%     READ : entry/ExecRead
+%     READ --> IDLE : evDoneRead
+
+%     STREAM --> IDLE : evExit
+% }
+
+% OP\_MODE --> ERROR : evErrorHandler
+% ERROR --> DEINIT : evDriverDeinit
+% DEINIT --> INIT : evDriverInit
+% @enduml
+% \end{plantuml}
+
 
 \subsection{Test de aceptación}
 \label{ssec:test-de-aceptacion}
@@ -637,5 +794,6 @@ los sensores que la componen.}
 \end{itemize}
 
 Ensayos equivalentes para el resto de los sensores que componen la IMU.
+
 
 \end{document}
