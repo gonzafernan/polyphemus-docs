@@ -29,7 +29,7 @@
  pdftitle={IEEE-830},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 26.2 (Org mode 9.1.9)}, 
+ pdfcreator={Emacs 26.2 (Org mode 9.1.9)},
  pdflang={English}}
 \begin{document}
 
@@ -78,7 +78,7 @@ implementación y evaluación (\textit{testing}).
 % \end{itemize}
 
 El nombre asignado al sistema es "\textit{Polyphemos}", en referencia al cíclope del poema
-griego la \textit{Odisea}. 
+griego la \textit{Odisea}.
 
 El sistema consistirá en un módulo de software con la capacidad de obtener información de una única
 cámara y una unidad de medición inercial (IMU por sus siglas en inglés), ejecutar un algoritmo de
@@ -112,7 +112,7 @@ etapa estable del éste.
     \item Plataforma móvil: Sistema físico sobre el que se encuentra el hardware del proyecto
     (los sensores y el microcontrolador) que será desplazado sobre el espacio de trabajo que posea
     la aplicación del usuario.
-    \item Sistema usuario: 
+    \item Sistema usuario:
   \end{itemize}
   \item Acrónimos:
   \begin{itemize}
@@ -190,7 +190,7 @@ los sensores que posea.
 El producto interactuará con el sistema usuario, que consiste en un sistema diseñado con el
 framework ROS 2. Dicho sistema lo provee el usuario o el proyecto, y se ejecuta en la PC del
 usuario bajo un sistema operativo de propósito general (por ejemplo Linux). El sistema posee
-herramientas de visualización y un estándar que respetará para comunicarse con el módulo de 
+herramientas de visualización y un estándar que respetará para comunicarse con el módulo de
 software en el sistema embebido.
 
 La comunicación con el sistema usuario es bidireccional: el sistema usuario recibirá la información
@@ -220,7 +220,7 @@ como base para el desarrollo de su propio sistema usuario.
   \item Proveerá al sistema usuario los datos obtenidos con la IMU sin procesar.
   \item Proveerá los datos procesados de posición y orientación del sistema físico al sistema
   usuario.
-  \item Permitirá la calibración de la IMU a través de rutinas determinadas. 
+  \item Permitirá la calibración de la IMU a través de rutinas determinadas.
   \item Proveerá los datos obtenidos por la cámara al sistema usuario.
   \item Generará un mapa del entorno del sistema desde cero o sobre información previa y brindará
   al sistema usuario el correspondiente mapa en conjunto con la ubicación del sistema en el mismo.
@@ -304,7 +304,7 @@ Existen diferentes perfiles de usuario final del producto. Se pueden destacar lo
 % sobre cierto sistema operativo. Si cambian dichos detalles en la
 % organización de la empresa, o si cambian ciertos detalles técnicos,
 % como el sistema operativo, puede ser necesario revisar y cambiar los
-% requisitos. 
+% requisitos.
 
 Para el desarrollo del producto se supone que:
 
@@ -351,7 +351,7 @@ Para el desarrollo del producto se supone que:
 % código o sistema de numeración adecuado.
 
 % \item Lo ideal, aunque en la práctica no siempre realizable, es que los
-% requisitos posean las siguientes características: 
+% requisitos posean las siguientes características:
 
 % \begin{itemize}
 % \item \textbf{Corrección:} La ERS es correcta si y sólo si todo requisito que
@@ -456,7 +456,7 @@ Para el desarrollo del producto se supone que:
 % y sugiere, entre otras, las siguientes:
 
 % \begin{itemize}
-% \item Por tipos de usuarios: 
+% \item Por tipos de usuarios:
 %     Distintos usuarios poseen distintos requisitos. Para cada clase de
 % usuario que exista en la organización, se especificarán los
 % requisitos funcionales que le afecten o tengan mayor relación con
@@ -475,14 +475,14 @@ Para el desarrollo del producto se supone que:
 
 
 % \begin{itemize}
-% \item Por estímulos: 
+% \item Por estímulos:
 %   Se especificarán los posibles estímulos que recibe el sistema y las
 % funciones relacionadas con dicho estímulo.
 % \end{itemize}
 
 
 % \begin{itemize}
-% \item Por jerarquía funcional: 
+% \item Por jerarquía funcional:
 %    Si ninguna de las anteriores alternativas resulta de ayuda, la
 % funcionalidad del sistema se especificará como una jerarquía de
 % funciones que comparten entradas, salidas o datos internos. Se
@@ -539,7 +539,7 @@ Referidos a la cámara:
   comunicación asociado a la cámara, realizar un chequeo de sanidad para comprobar que esta se
   encuentra disponible. Ante tal mensaje el sistema responderá con otro mensaje en el mismo
   canal de comunicación, con un identificador de error si no se encuentra disponible, o caso
-  contrario con información del módulo de la cámara (por ejemplo, ID y configuración actual) 
+  contrario con información del módulo de la cámara (por ejemplo, ID y configuración actual)
   para que el usuario pueda verificar si el módulo identificado por el sistema es el correcto.
   \item \textbf{[PYPH-RS-021]:} El sistema SLAM debe permitir mediante un mensaje en el canal de
   comunicación asociado a la cámara, solicitar lecturas individuales, es decir, imágenes.
@@ -753,7 +753,7 @@ N/A.
   \end{enumerate}
   \item \textbf{Flujo alternativo:}
   \begin{itemize}
-    \item Alternativa al paso 2: 
+    \item Alternativa al paso 2:
     \begin{enumerate}
       \item El driver de la IMU le indica al sistema que esta no se encuentra disponible, o el
       driver de la cámara le indica al sistema que no fue posible realizar la captura.

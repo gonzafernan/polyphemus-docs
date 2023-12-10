@@ -1,27 +1,27 @@
 \documentclass[
 11pt, % The default document font size, options: 10pt, 11pt, 12pt
 codirector, % Uncomment to add a codirector to the title page
-]{charter} 
+]{charter}
 
 
 
 
 % El títulos de la memoria, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \ttitle
-\titulo{Desarrollo de plataforma móvil para SLAM monocular} 
+\titulo{Desarrollo de plataforma móvil para SLAM monocular}
 
 % Nombre del posgrado, se usa en la carátula y se puede usar el cualquier lugar del documento con el comando \degreename
-\posgrado{Carrera de Especialización en Sistemas Embebidos} 
-%\posgrado{Carrera de Especialización en Internet de las Cosas} 
+\posgrado{Carrera de Especialización en Sistemas Embebidos}
+%\posgrado{Carrera de Especialización en Internet de las Cosas}
 %\posgrado{Carrera de Especialización en Intelegencia Artificial}
-%\posgrado{Maestría en Sistemas Embebidos} 
+%\posgrado{Maestría en Sistemas Embebidos}
 %\posgrado{Maestría en Internet de las cosas}
 
 % Tu nombre, se puede usar el cualquier lugar del documento con el comando \authorname
-\autor{Ing. Gonzalo Gabriel Fernández} 
+\autor{Ing. Gonzalo Gabriel Fernández}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
 \director{Dr. Ing. Fabio Ardiani}
-\pertenenciaDirector{Nimble One} 
+\pertenenciaDirector{Nimble One}
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
 %\codirector{John Doe} % para que aparezca en la portada se debe descomentar la opción codirector en el documentclass
 %\pertenenciaCoDirector{FIUBA}
@@ -32,12 +32,12 @@ codirector, % Uncomment to add a codirector to the title page
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
 \juradoUno{Nombre y Apellido (1)}
-\pertenenciaJurUno{pertenencia (1)} 
+\pertenenciaJurUno{pertenencia (1)}
 \juradoDos{Nombre y Apellido (2)}
 \pertenenciaJurDos{pertenencia (2)}
 \juradoTres{Nombre y Apellido (3)}
 \pertenenciaJurTres{pertenencia (3)}
- 
+
 \fechaINICIO{25 de abril de 2023}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{13 de junio de 2023} 	%Fecha de final de cursada de GdP
 \fechaFINALTrabajo{15 de mayo de 2024}	%Fecha de defensa pública del trabajo final
@@ -67,7 +67,7 @@ codirector, % Uncomment to add a codirector to the title page
 \centering
 \begin{tabularx}{\linewidth}{@{}|c|X|c|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
 0      & Creación del documento                                 &\fechaInicioName 	 \\ \hline
 1      & Se completa hasta el punto 4 inclusive                 & 9 de mayo de 2023  \\ \hline
@@ -100,10 +100,10 @@ Se adjunta a esta acta la planificación inicial.
 \begin{table}[ht]
 \centering
 \begin{tabular}{ccc}
-\begin{tabular}[c]{@{}c@{}}Dr. Ing. Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} & \hspace{2cm} & \begin{tabular}[c]{@{}c@{}}\clientename \\ \empclientename \end{tabular} \vspace{2.5cm} \\ 
+\begin{tabular}[c]{@{}c@{}}Dr. Ing. Ariel Lutenberg \\ Director posgrado FIUBA\end{tabular} & \hspace{2cm} & \begin{tabular}[c]{@{}c@{}}\clientename \\ \empclientename \end{tabular} \vspace{2.5cm} \\
 \multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}} \supname \\ Director del Trabajo Final\end{tabular}} \vspace{2.5cm} \\
 %\begin{tabular}[c]{@{}c@{}}\jurunoname \\ Jurado del Trabajo Final\end{tabular}     &  & \begin{tabular}[c]{@{}c@{}}\jurdosname\\ Jurado del Trabajo Final\end{tabular}  \vspace{2.5cm}  \\
-%\multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}} \jurtresname\\ Jurado del Trabajo Final\end{tabular}} \vspace{.5cm}                                                                     
+%\multicolumn{3}{c}{\begin{tabular}[c]{@{}c@{}} \jurtresname\\ Jurado del Trabajo Final\end{tabular}} \vspace{.5cm}
 \end{tabular}
 \end{table}
 
@@ -119,7 +119,7 @@ La navegación autónoma se refiere a la capacidad de un sistema para planificar
 
 La capacidad de un sistema para tomar decisiones en forma autónoma en su navegación a través del entorno es crucial para una amplia gama de aplicaciones, desde los vehículos autónomos y los drones, hasta los robots industriales y los sistemas de logística.
 
-La investigación de técnicas de bajo costo es importante para permitir que la tecnología sea accesible para un mayor número de aplicaciones y usuarios. Esto es especialmente importante en países en desarrollo o en áreas con recursos limitados, donde los sistemas de navegación autónoma pueden ser prohibitivamente costosos. 
+La investigación de técnicas de bajo costo es importante para permitir que la tecnología sea accesible para un mayor número de aplicaciones y usuarios. Esto es especialmente importante en países en desarrollo o en áreas con recursos limitados, donde los sistemas de navegación autónoma pueden ser prohibitivamente costosos.
 
 La restricción económica en el desarrollo de nuevas técnicas también puede mejorar la eficiencia y la efectividad de los sistemas de navegación autónoma, al permitir que los recursos sean utilizados de manera más efectiva y maximizar la vida útil de los componentes del sistema.
 
@@ -132,10 +132,10 @@ La SLAM es una técnica de visión por computadora que permite a un robot móvil
 La Fundación Fulgor realiza diversas actividades de investigación. Dentro del campo de navegación autónoma, una de las ramas de interés es la de algoritmos de SLAM monocular en conjunto con la odometría inercial, por las diferentes ventajas que presenta sobre otros métodos. Es por esto que se han realizado experimentos en el marco de la Práctica Profesional Supervisada de la estudiante de grado Evangelina Castellano, implementando y analizando el desempeño de diferentes algoritmos en entornos de simulación.
 
 Actualmente, uno de los objetivos en esta línea de investigación es poder migrar los algoritmos estudiados en un entorno virtual a un sistema físico, para evaluar su desempeño en un entorno real. La experimentación en entornos virtuales se llevó a cabo con el framework ROS 2 (\textit{Robot Operating System 2}).
-Dada la naturaleza modular de este framework, la migración consiste en el reemplazo de un módulo encapsulado que contenga el algoritmo, como se observa en la figura \ref{fig:ros2-to-microros}. 
+Dada la naturaleza modular de este framework, la migración consiste en el reemplazo de un módulo encapsulado que contenga el algoritmo, como se observa en la figura \ref{fig:ros2-to-microros}.
 
 \begin{figure}[htpb]
-\centering 
+\centering
 \includegraphics[width=.8\textwidth]{./Figuras/ros2-microros-migration.png}
 \caption{Migración de algoritmos en entorno de simulación a sistema físico.}
 \label{fig:ros2-to-microros}
@@ -146,8 +146,8 @@ Dada la naturaleza modular de este framework, la migración consiste en el reemp
 El entorno ROS es un framework de software libre y de código abierto diseñado para permitir el desarrollo de aplicaciones robóticas distribuidas. Este framework proporciona un conjunto de herramientas para la creación, gestión, depuración y análisis de sistemas robóticos.
 
 La segunda versión de la herramienta, denominada ROS 2, fue desarrollada por la comunidad con el objetivo de mejorar la escalabilidad, la fiabilidad y la seguridad del software.
-Una de sus principales características es que está diseñado para ser modular y extensible, lo que significa que los desarrolladores pueden elegir los componentes que necesitan para sus aplicaciones y utilizarlos de manera flexible. 
-También se enfoca en proporcionar una abstracción de hardware más clara y permitir el uso de diferentes sistemas operativos y arquitecturas. 
+Una de sus principales características es que está diseñado para ser modular y extensible, lo que significa que los desarrolladores pueden elegir los componentes que necesitan para sus aplicaciones y utilizarlos de manera flexible.
+También se enfoca en proporcionar una abstracción de hardware más clara y permitir el uso de diferentes sistemas operativos y arquitecturas.
 
 La herramienta micro-ROS es una implementación de ROS 2 diseñada específicamente para sistemas embebidos y de tiempo real. A diferencia de ROS 2, que se ejecuta en sistemas operativos de propósito general, micro-ROS se ejecuta en sistemas operativos de tiempo real (como NuttX y FreeRTOS), lo que permite el desarrollo de sistemas robóticos en entornos de baja potencia y recursos limitados.
 
@@ -155,7 +155,7 @@ Como puede observarse en la figura \ref{fig:microROSarch}, micro-ROS proporciona
 Esto significa que los desarrolladores pueden crear sistemas robóticos distribuidos, que utilicen tanto sistemas embebidos como sistemas de propósito general y que todos ellos puedan comunicarse a través de la misma plataforma.
 
 \begin{figure}[htpb]
-\centering 
+\centering
 \includegraphics[width=.7\textwidth]{./Figuras/micro-ROS_architecture.png}
 \caption{Arquitectura de micro-ROS.}
 \label{fig:microROSarch}
@@ -169,7 +169,7 @@ Esto significa que los desarrolladores pueden crear sistemas robóticos distribu
 %\label{tab:interesados}
 \begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
 % Auspiciante   &                   &              	&        	\\ \hline
 Cliente       & \clientename      &\empclientename	&  Investigador      	\\ \hline
@@ -275,7 +275,7 @@ La ponderación de cada historia de usuario se obtiene de una evaluación sobre 
 	\item Tiempo: 4
 	\item Dificultad: 3
 	\item Incertidumbre: 2
-	\item Puntaje: 60 
+	\item Puntaje: 60
 \end{itemize}
 
 \textbf{Historia 2 de usuario 1:} como investigador en el área de Ciencias de la Computación quiero poder visualizar la información obtenida por los sensores y utilizarla como entrada a simulaciones virtuales.
@@ -470,11 +470,11 @@ Las tareas expuestas en el diagrama de \textit{Activity On Node}, figura \ref{fi
 8.7             & 8.6                  & Optimización del algoritmo en el sistema embebido  & 40 h               \\
 8.8             & 8.7                  & Evaluación final de resultados                     & 40 h               \\
 8.9             & 8.8                  & Documentación técnica del algoritmo                & 50 h               \\
-9               &                      & Proceso de cierre                                  & 91 h               \\ 
-9.1             & 8.9                  & Análisis de cumplimiento de objetivos con director & 2 h                \\ 
-9.2             & 9.1                  & Análisis de cumplimiento del plan original         & 2 h                \\ 
-9.3             & 9.2                  & Análisis de cumplimiento de objetivos con cliente  & 2 h                \\ 
-9.4             & 9.3                  & Elaboración de memoria técnica                     & 40 h               \\ 
+9               &                      & Proceso de cierre                                  & 91 h               \\
+9.1             & 8.9                  & Análisis de cumplimiento de objetivos con director & 2 h                \\
+9.2             & 9.1                  & Análisis de cumplimiento del plan original         & 2 h                \\
+9.3             & 9.2                  & Análisis de cumplimiento de objetivos con cliente  & 2 h                \\
+9.4             & 9.3                  & Elaboración de memoria técnica                     & 40 h               \\
 9.5             & 9.4                  & Corrección de memoria técnica                      & 20 h               \\
 9.6             & 9.5                  & Preparación de defensa pública                     & 20 h               \\
 9.7             & 9.6                  & Defensa pública                                    & 2 h                \\
@@ -484,7 +484,7 @@ Las tareas expuestas en el diagrama de \textit{Activity On Node}, figura \ref{fi
 \end{table}
 
 % \begin{consigna}{red}
-% Armar el AoN a partir del WBS definido en la etapa anterior. 
+% Armar el AoN a partir del WBS definido en la etapa anterior.
 
 %La figura \ref{fig:AoN} fue elaborada con el paquete latex tikz y pueden consultar la siguiente referencia \textit{online}:
 
@@ -494,7 +494,7 @@ Las tareas expuestas en el diagrama de \textit{Activity On Node}, figura \ref{fi
 
 \begin{landscape}
 \begin{figure}[htpb]
-\centering 
+\centering
 \includegraphics[width=1.5\textwidth]{./Figuras/MonoSLAM-AoN.png}
 \caption{Diagrama de \textit{Activity on Node}.}
 \label{fig:AoN}
@@ -517,7 +517,7 @@ Las tareas expuestas en el diagrama de \textit{Activity On Node}, figura \ref{fi
 % \item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
 % \end{itemize}
 
-% Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
+% Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible.
 % Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
 
 % Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
@@ -547,10 +547,9 @@ Las tareas expuestas en el diagrama de \textit{Activity On Node}, figura \ref{fi
 
 % \begin{landscape}
 % \begin{figure}[htpb]
-% \centering 
+% \centering
 % \includegraphics[height=.85\textheight]{./Figuras/Gantt_v1.png}
 % \caption{Ejemplo de diagrama de Gantt rotado}
-% \label{fig:diagGantt}
 % \end{figure}
 % \end{landscape}
 
@@ -560,7 +559,7 @@ Las tareas expuestas en el diagrama de \textit{Activity On Node}, figura \ref{fi
 \section{11. Diagrama de Gantt}
 \label{sec:gantt}
 \begin{figure}[htpb]
-\centering 
+\centering
 \includegraphics[height=.77\textheight]{./Figuras/Gantt_v2.png}
 %\caption{Diagrama de Gantt del proyecto.}
 \label{fig:diagGantt}
@@ -575,9 +574,9 @@ Las tareas expuestas en el diagrama de \textit{Activity On Node}, figura \ref{fi
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|c|r|r|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
@@ -604,9 +603,9 @@ Cámara &
   \multicolumn{1}{c|}{1670000 ARS} \\ \hline
 \multicolumn{3}{|c|}{SUBTOTAL} &
   \multicolumn{1}{c|}{1713000 ARS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 \multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Descripción &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
   \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
@@ -637,24 +636,24 @@ Descripción &
 
 % \begin{consigna}{red}
 % a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
- 
+
 % Riesgo 1: detallar el riesgo (riesgo es algo que si ocurre altera los planes previstos de forma negativa)
 % \begin{itemize}
 % 	\item Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).\\
 % 	Justificar el motivo por el cual se asigna determinado número de severidad (S).
 % 	\item Probabilidad de ocurrencia (O): mientras más probable, más alto es el número (usar del 1 al 10).\\
-% 	Justificar el motivo por el cual se asigna determinado número de (O). 
-% \end{itemize}   
+% 	Justificar el motivo por el cual se asigna determinado número de (O).
+% \end{itemize}
 
 % Riesgo 2:
 % \begin{itemize}
-% 	\item Severidad (S): 
+% 	\item Severidad (S):
 % 	\item Ocurrencia (O):
 % \end{itemize}
 
 % Riesgo 3:
 % \begin{itemize}
-% 	\item Severidad (S): 
+% 	\item Severidad (S):
 % 	\item Ocurrencia (O):
 % \end{itemize}
 
@@ -665,7 +664,7 @@ Descripción &
 % \centering
 % \begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
 % \hline
-% \rowcolor[HTML]{C0C0C0} 
+% \rowcolor[HTML]{C0C0C0}
 % Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
 %        &   &   &     &    &    &      \\ \hline
 %        &   &   &     &    &    &      \\ \hline
@@ -675,13 +674,13 @@ Descripción &
 % \end{tabularx}%
 % \end{table}
 
-% Criterio adoptado: 
+% Criterio adoptado:
 % Se tomarán medidas de mitigación en los riesgos cuyos números de RPN sean mayores a...
 
 % Nota: los valores marcados con (*) en la tabla corresponden luego de haber aplicado la mitigación.
 
 % c) Plan de mitigación de los riesgos que originalmente excedían el RPN máximo establecido:
- 
+
 % Riesgo 1: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
 %   Nueva asignación de S y O, con su respectiva justificación:
 %   - Severidad (S): mientras más severo, más alto es el número (usar números del 1 al 10).
@@ -690,7 +689,7 @@ Descripción &
 %           Justificar el motivo por el cual se asigna determinado número de (O).
 
 % Riesgo 2: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
- 
+
 % Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de mitigación).
 
 % \end{consigna}
@@ -699,7 +698,7 @@ a) Identificación de los riesgos y estimación de sus consecuencias:
 
 Riesgo 1: la IMU o la cámara seleccionadas y adquiridas para el prototipo no tienen buen desempeño en la aplicación del proyecto.
 \begin{itemize}
-	\item Severidad (S): 6, porque impacta en la calidad del resultado final del prototipo, pero no impide la obtención de una primera versión de este. 
+	\item Severidad (S): 6, porque impacta en la calidad del resultado final del prototipo, pero no impide la obtención de una primera versión de este.
 	\item Probabilidad de ocurrencia (O): 5, porque es un riesgo contemplado al tener un presupuesto acotado para la adquisición de materiales. Dadas las limitaciones del primer prototipo, se desarrollará una segunda versión con mejoras en estos aspectos, contemplando la adquisición de sensores en el extranjero, de ser necesario.
 \end{itemize}
 
@@ -734,7 +733,7 @@ Criterio adoptado: se tomarán medidas de mitigación en los riesgos cuyos núme
 \centering
 \begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
+\rowcolor[HTML]{C0C0C0}
 Riesgo 													& S & O & RPN & S* & O* & RPN*  \\ \hline
 1. Los sensores seleccionados no tienen buen desempeño. & 6 & 5 & 30  &   &     &  		\\ \hline
 2. Cambios imprevistos en el equipo de trabajo       	& 8 & 6 & 48  & 6 & 6   & 36  	\\ \hline
@@ -800,12 +799,12 @@ Riesgo 5: durante la investigación de los algoritmos SLAM se llevará a cabo un
 	\end{itemize}
 	\item Req \#1.7: el sistema embebido debe hacer un uso adecuado de los mecanismos de comunicación de micro-ROS con ROS 2 para explotar todas las ventajas que ofrece el framework.
 	\begin{itemize}
-		\item Verificación y validación a través del análisis del grafo de comunicación resultante en ROS 2. 
+		\item Verificación y validación a través del análisis del grafo de comunicación resultante en ROS 2.
 	\end{itemize}
 	\item Req \#1.8: el sistema debe estar diseñado de forma modular para favorecer su escalabilidad.
 	\begin{itemize}
 		\item Verificación mediante la demostración del funcionamiento del sistema anulando (o desactivando) los distintos módulos de forma secuencial.
-		\item Validación mediante la demostración del funcionamiento de entornos de trabajo predefinidos en ROS 2 que permitan operar con módulos individuales del sistema. 
+		\item Validación mediante la demostración del funcionamiento de entornos de trabajo predefinidos en ROS 2 que permitan operar con módulos individuales del sistema.
 	\end{itemize}
 	\item Req \#1.9: el sistema debe ejecutar un algoritmo investigado previamente de SLAM monocular.
 	\begin{itemize}
@@ -826,7 +825,7 @@ Riesgo 5: durante la investigación de los algoritmos SLAM se llevará a cabo un
 	\end{itemize}
 \end{itemize}
 
-\section{15. Procesos de cierre}    
+\section{15. Procesos de cierre}
 \label{sec:cierre}
 
 Una vez finalizado el proyecto se realizarán las siguientes actividades:
